@@ -1,0 +1,178 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+// -----------
+// Information
+// -----------
+BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
+AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
+VERSION ~v0.0.1~
+AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
+
+
+// --------------
+// Initialization
+// --------------
+ALWAYS 
+	// LIBRARY INCLUDES(Don't touch these)
+	// -----------------------------------
+	INCLUDE ~%MOD_FOLDER%/lib/simp_AddItemHeader.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/warnings.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/errors.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/2daHandling.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/IdsHandling.tph~
+
+END// End of "ALWAYS"
+
+
+// ---------
+// Languages
+// ---------
+// Usage of %MOD_FOLDER% not recommended due to bug(see AL|EN's comment): 
+// https://www.gibberlings3.net/forums/topic/36760-item-mod-bgee-akuns-gear/  
+LANGUAGE
+	~English~	// Language
+	~English~	// Directory
+	~akgear/English/!_setup.tra~
+	~akgear/English/!_hoftd.tra~
+	~akgear/English/!_warnings.tra~
+	~akgear/English/!_errors.tra~
+
+/*	
+LANGUAGE
+	~Deutsch~	// Language
+	~German~	// Directory
+	~akgear/Deutsch/!_setup.tra~
+	~akgear/Deutsch/!_hoftd.tra~
+	~akgear/Deutsch/!_warnings.tra~
+	~akgear/Deutsch/!_errors.tra~
+*/
+
+// ------------------------------------------------
+// Install "Tutoril's Historical Encyclopedias" Mod
+// ------------------------------------------------
+BEGIN @1 LABEL "!_-TutorilsHistoricalEncyclopedias-Main" DESIGNATED 1000
+// GLOBAL INCLUDES(Don't touch this!)
+// ----------------------------------	
+INCLUDE ~%MOD_FOLDER%/laf/errors/!_CheckIEgames.tpa~
+
+
+// CREATING ITEM FILES
+// -------------------
+CREATE ~ITM~ ~!_HOFTD~	// "TE:History of the Drow"
+
+
+// BAM FILES FOR ALL ITEMS
+// -----------------------
+COPY ~%MOD_FOLDER%/BAM/inventory~ 	~override~
+COPY ~%MOD_FOLDER%/BAM/description~ ~override~
+COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
+// WAV FILES FOR ALL ITEMS
+// -----------------------
+COPY ~%MOD_FOLDER%/sound/inventory~ ~override~
+COPY ~%MOD_FOLDER%/sound/sequence~ 	~override~
+
+
+// ITEM CONSTANTS HEADER(Don't touch this!)
+// ----------------------------------------
+OUTER_SET ITM_SIGNATURE				= 0x0000
+OUTER_SET ITM_VERSION				= 0x0004
+OUTER_SET ITM_PRICE 				= 0x0034
+OUTER_SET ITM_WEIGHT				= 0x004c
+OUTER_SET ITM_LORE					= 0x0042
+OUTER_SET ITM_MIN_STRENGTH			= 0x0026
+OUTER_SET ITM_MIN_LEVEL				= 0x0024
+OUTER_SET ITM_MAX_IN_STACK			= 0x0038 
+OUTER_SET ITM_ENCHANTMENT			= 0x0060 
+OUTER_SET ITM_FLAGS					= 0x0018
+OUTER_SET ITM_TYPE					= 0x001c
+OUTER_SET ITM_UNUSABLE_BY			= 0x001e
+OUTER_SET ITM_UNUSABLE_KIT1			= 0x0029
+OUTER_SET ITM_UNUSABLE_KIT2			= 0x002b
+OUTER_SET ITM_UNUSABLE_KIT3			= 0x002d
+OUTER_SET ITM_UNUSABLE_KIT4			= 0x002f
+OUTER_SET ITM_WEAPON_PROFICIENCY	= 0x0031
+OUTER_SET ITM_GROUND_ICON			= 0x0044
+OUTER_SET ITM_DESCRIPTION_IMAGE		= 0x0058
+OUTER_SET ITM_INVENTORY_ICON		= 0x003a
+OUTER_SET ITM_ANIMATION				= 0x0022
+OUTER_SET ITM_NUMBER_OF_ABILITIES	= 0x0068
+
+
+// GLOBAL VARIABLES (Changable)
+// ----------------------------	
+OUTER_SPRINT signature 			 ~ITM~
+OUTER_SPRINT version 			 ~V1~	
+OUTER_SET price	 				= 5000
+OUTER_SET weight 				= 5
+OUTER_SET lore 					= 45
+OUTER_SET min_strength 			= 6
+OUTER_SET min_level 			= 4
+OUTER_SET max_in_stack 			= 1
+OUTER_SET type 					= 0x14		// E.g. 0x14 = value 20 for category "Large Swords"
+OUTER_SET weapon_proficiency 	= 0x5E		// E.g. Katana
+OUTER_SET animation		 		= 0x3353	// E.g. S3-Katana
+// Binaries result in "Droppable", "Displayable", "Not copyable", "Magical"
+OUTER_SET flags 				= 0b00000000000000000000000001101100
+// Next five variables result in item only usable by Wizard Slayer
+OUTER_SET unusable_by			= 0b01100000011111111111011111000000
+OUTER_SET unusable_kit1			= 0b11111111
+OUTER_SET unusable_kit2			= 0b11111111
+OUTER_SET unusable_kit3			= 0b11111111
+OUTER_SET unusable_kit4			= 0b11111101
+
+
+// PATCHING ITEM FILE "TE:History of the Drow"
+// -------------------------------------------
+COPY_EXISTING ~!_HOFTD.ITM~ override
+	// LOCAL INCLUDES(Content changeable)
+	// ----------------------------------
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_HistoryOfTheDrow.tpp~
+
+	// LOCAL VARIABLES
+	// ---------------
+	SET L_enchantment = 1
+	SPRINT L_ground_icon 		~GSW1H01~				
+	SPRINT L_description_image 	~!_CSW1WD~
+	SPRINT L_inventory_icon 	~!_ISW1WD~	
+
+	// ITEM PROPERTIES (HEADER)
+	// ------------------------
+	SAY NAME1 				@2 	// Unidentified item name
+	SAY NAME2 				@3 	// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@4 	// Unidentified description	
+	SAY DESC 				@5 	// Identified description				
+	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
+	WRITE_ASCII	ITM_VERSION				~%version%~		
+	WRITE_ASCII	ITM_GROUND_ICON			~%L_ground_icon%~		
+	WRITE_ASCII	ITM_DESCRIPTION_IMAGE	~%L_description_image%~		
+	WRITE_ASCII	ITM_INVENTORY_ICON		~%L_inventory_icon%~
+	WRITE_LONG 	ITM_PRICE				price
+	WRITE_LONG 	ITM_FLAGS				flags
+	WRITE_LONG 	ITM_UNUSABLE_BY			unusable_by
+	WRITE_SHORT ITM_WEIGHT 				weight 	
+	WRITE_SHORT ITM_LORE 				lore 
+	WRITE_SHORT ITM_TYPE				type
+	WRITE_SHORT ITM_ANIMATION			animation	
+	WRITE_BYTE	ITM_MIN_STRENGTH 		min_strength
+	WRITE_BYTE 	ITM_MIN_LEVEL	 		min_level
+	WRITE_BYTE	ITM_MAX_IN_STACK	 	max_in_stack
+	WRITE_BYTE	ITM_ENCHANTMENT	 		L_enchantment
+	WRITE_BYTE	ITM_WEAPON_PROFICIENCY	weapon_proficiency
+	WRITE_BYTE 	ITM_UNUSABLE_KIT1		unusable_kit1	
+	WRITE_BYTE 	ITM_UNUSABLE_KIT2		unusable_kit2	
+	WRITE_BYTE 	ITM_UNUSABLE_KIT3		unusable_kit3	
+	WRITE_BYTE 	ITM_UNUSABLE_KIT4		unusable_kit4
+BUT_ONLY // End patching: ~!_SW1HWD.ITM~
+
+// PATCHING STORE FILE "Feldepost's Inn"(Beregost)
+// -----------------------------------------------
+COPY_EXISTING ~INN3351.STO~ ~override~
+	// LOCAL INCLUDES(Content changeable)
+	// ----------------------------------
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_StoreAllItems.tpp~
+BUT_ONLY // End patching: ~INN3351.STO~
+
+
+// FOOTER INCLUDES
+// ---------------
+INCLUDE ~%MOD_FOLDER%/laf/warnings/!_CheckSOD.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/warnings/!_CheckIEgames.tpa~
