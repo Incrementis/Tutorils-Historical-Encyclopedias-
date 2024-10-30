@@ -31,19 +31,19 @@ END// End of "ALWAYS"
 LANGUAGE
 	~English~	// Language
 	~English~	// Directory
-	~akgear/English/!_setup.tra~
-	~akgear/English/!_hoftd.tra~
-	~akgear/English/!_warnings.tra~
-	~akgear/English/!_errors.tra~
+	~tutorils_he/English/!_setup.tra~
+	~tutorils_he/English/!_hoftd.tra~
+	~tutorils_he/English/!_warnings.tra~
+	~tutorils_he/English/!_errors.tra~
 
 /*	
 LANGUAGE
 	~Deutsch~	// Language
 	~German~	// Directory
-	~akgear/Deutsch/!_setup.tra~
-	~akgear/Deutsch/!_hoftd.tra~
-	~akgear/Deutsch/!_warnings.tra~
-	~akgear/Deutsch/!_errors.tra~
+	~tutorils_he/Deutsch/!_setup.tra~
+	~tutorils_he/Deutsch/!_hoftd.tra~
+	~tutorils_he/Deutsch/!_warnings.tra~
+	~tutorils_he/Deutsch/!_errors.tra~
 */
 
 // ------------------------------------------------
@@ -57,7 +57,7 @@ INCLUDE ~%MOD_FOLDER%/laf/errors/!_CheckIEgames.tpa~
 
 // CREATING ITEM FILES
 // -------------------
-CREATE ~ITM~ ~!_HOFTD~	// "TE:History of the Drow"
+CREATE ~ITM~ ~!_HOFTD~	// "THE:History of the Drow"
 
 
 // BAM FILES FOR ALL ITEMS
@@ -101,9 +101,9 @@ OUTER_SET ITM_NUMBER_OF_ABILITIES	= 0x0068
 // ----------------------------	
 OUTER_SPRINT signature 			 ~ITM~
 OUTER_SPRINT version 			 ~V1~	
-OUTER_SET price	 				= 5000
-OUTER_SET weight 				= 5
-OUTER_SET lore 					= 45
+OUTER_SET price	 				= 250
+OUTER_SET weight 				= 3
+OUTER_SET lore 					= 10
 OUTER_SET min_strength 			= 6
 OUTER_SET min_level 			= 4
 OUTER_SET max_in_stack 			= 1
@@ -120,7 +120,7 @@ OUTER_SET unusable_kit3			= 0b11111111
 OUTER_SET unusable_kit4			= 0b11111101
 
 
-// PATCHING ITEM FILE "TE:History of the Drow"
+// PATCHING ITEM FILE "THE:History of the Drow"
 // -------------------------------------------
 COPY_EXISTING ~!_HOFTD.ITM~ override
 	// LOCAL INCLUDES(Content changeable)
@@ -130,9 +130,9 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 	// LOCAL VARIABLES
 	// ---------------
 	SET L_enchantment = 1
-	SPRINT L_ground_icon 		~GSW1H01~				
-	SPRINT L_description_image 	~!_CSW1WD~
-	SPRINT L_inventory_icon 	~!_ISW1WD~	
+	SPRINT L_ground_icon 		~!_GHOFTD~				
+	SPRINT L_description_image 	~!_CHOFTD~
+	SPRINT L_inventory_icon 	~!_IHOFTD~	
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
@@ -147,21 +147,21 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 	WRITE_ASCII	ITM_INVENTORY_ICON		~%L_inventory_icon%~
 	WRITE_LONG 	ITM_PRICE				price
 	WRITE_LONG 	ITM_FLAGS				flags
-	WRITE_LONG 	ITM_UNUSABLE_BY			unusable_by
+//	WRITE_LONG 	ITM_UNUSABLE_BY			unusable_by
 	WRITE_SHORT ITM_WEIGHT 				weight 	
 	WRITE_SHORT ITM_LORE 				lore 
-	WRITE_SHORT ITM_TYPE				type
-	WRITE_SHORT ITM_ANIMATION			animation	
-	WRITE_BYTE	ITM_MIN_STRENGTH 		min_strength
-	WRITE_BYTE 	ITM_MIN_LEVEL	 		min_level
-	WRITE_BYTE	ITM_MAX_IN_STACK	 	max_in_stack
+	WRITE_SHORT ITM_TYPE				L_newtype
+//	WRITE_SHORT ITM_ANIMATION			animation	
+//	WRITE_BYTE	ITM_MIN_STRENGTH 		min_strength
+//	WRITE_BYTE 	ITM_MIN_LEVEL	 		min_level
+//	WRITE_BYTE	ITM_MAX_IN_STACK	 	max_in_stack
 	WRITE_BYTE	ITM_ENCHANTMENT	 		L_enchantment
-	WRITE_BYTE	ITM_WEAPON_PROFICIENCY	weapon_proficiency
-	WRITE_BYTE 	ITM_UNUSABLE_KIT1		unusable_kit1	
-	WRITE_BYTE 	ITM_UNUSABLE_KIT2		unusable_kit2	
-	WRITE_BYTE 	ITM_UNUSABLE_KIT3		unusable_kit3	
-	WRITE_BYTE 	ITM_UNUSABLE_KIT4		unusable_kit4
-BUT_ONLY // End patching: ~!_SW1HWD.ITM~
+//	WRITE_BYTE	ITM_WEAPON_PROFICIENCY	weapon_proficiency
+//	WRITE_BYTE 	ITM_UNUSABLE_KIT1		unusable_kit1	
+//	WRITE_BYTE 	ITM_UNUSABLE_KIT2		unusable_kit2	
+//	WRITE_BYTE 	ITM_UNUSABLE_KIT3		unusable_kit3	
+//	WRITE_BYTE 	ITM_UNUSABLE_KIT4		unusable_kit4
+BUT_ONLY // End patching: ~!_HOFTD.ITM~
 
 // PATCHING STORE FILE "Feldepost's Inn"(Beregost)
 // -----------------------------------------------

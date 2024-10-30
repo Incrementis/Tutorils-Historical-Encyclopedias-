@@ -1,0 +1,30 @@
+// ----------------------
+// Unidentified item name
+// ----------------------
+@2=~Encyclopedia~
+
+// --------------------
+// Identified item name
+// --------------------
+@3=~THE:History of the Drow~
+
+// ------------------------
+// Unidentified description
+// ------------------------
+@4=~Judging by the arcane symbols printed on its cover, it is clear that this book is imbued with magical properties of one sort or another. Until you attempt to either read or identify it, however, its precise nature will remain unknown to you.
+
+Weight: 30~
+
+// ---------------------------------
+// Identified description(Partially)
+// ---------------------------------
+@5=~Charge abilities: 
+-Infravision 
+ Range: 30 ft. 
+ Area of Effect: 1 creature 
+ Saving Throw: None
+ Duration: 2 hours 
+
+Upon the casting of this spell the recipient gains the ability to see with infravision, just as an elf or a dwarf would. This effect lasts for the duration of the spell or until dispelled.
+
+Weight: 30~
