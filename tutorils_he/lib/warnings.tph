@@ -1,0 +1,37 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+//-------------------------------//
+// Contains self defined warnings//
+//-------------------------------//
+
+// Purpose: Prints a message if file exists
+// ----------------------------------------
+DEFINE_ACTION_FUNCTION ~WARN_EVALUATE_FILE_EXISTANCE~
+	STR_VAR
+		file 	= ~~
+		message = ~~
+BEGIN
+	ACTION_IF (FILE_EXISTS ~%file%~) THEN 
+	BEGIN
+        PRINT ~--------~
+		PRINT ~WARNING:~
+        PRINT ~--------~
+        PRINT ~%message%~
+	END
+END // End of "WARN_EVALUATE_FILE_EXISTANCE"
+
+
+// Purpose: Prints a message if game exists
+// ----------------------------------------
+DEFINE_ACTION_FUNCTION ~WARN_EVALUATE_GAME_EXISTANCE~
+	STR_VAR
+		game 	= ~~
+		message = ~~
+BEGIN
+	ACTION_IF (GAME_IS ~%game%~) THEN 
+	BEGIN
+        PRINT ~--------~
+		PRINT ~WARNING:~
+        PRINT ~--------~
+        PRINT ~%message%~
+	END
+END // End of "WARN_EVALUATE_GAME_EXISTANCE"
