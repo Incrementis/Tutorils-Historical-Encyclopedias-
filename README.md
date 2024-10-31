@@ -27,8 +27,8 @@ A total of 21 images were created that can be found as a description image depen
 ## Supported Games
 * SoD (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
 * Not-Yet BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
-* Not-Yet BG2:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
-* Not-Yet IWD:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
+* Not-Yet BG2:EE (Baldur's Gate2:Enhanced Edition) tested version is 2.6.6.0
+* Not-Yet IWD:EE (Icewind Dale:Enhanced Edition) tested version is 2.6.6.0
 
 ## Operating Systems
 * Tested on Windows 11 and is likely to work on other operating systems
@@ -48,7 +48,7 @@ A total of 21 images were created that can be found as a description image depen
 ### There are known issues when installing SOD as DLC for BG:EE
 Here is a solution:
 
-* Before "Akun's Gear" is installed(If it is already installed, uninstall it before installing SOD by launching "*Setup-akgear.exe*".):
+* Before "Tutoril's Historical Encyclopedias" is installed(If it is already installed, uninstall it before installing SOD by launching "*Setup-tutorils_he.exe*".):
 	1. SOD needs to be installed as BG:EE DLC 
 	2. and after that [DLCmerger](https://github.com/Argent77/A7-DlcMerger/releases) needs to be installed.
 
@@ -75,13 +75,13 @@ Thanks for offering code
 ### "History of the Drow"
 * Image: <a href="https://commons.wikimedia.org/wiki/File:Falero_Luis_Ricardo_Lily_Fairy_1888.jpg">Luis Ricardo Falero</a>, Public domain, via Wikimedia Commons
 
-* Image: Foto von <a href="https://unsplash.com/de/@souvenirpixels?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">James Wheeler</a> auf <a href="https://unsplash.com/de/fotos/graues-holz-auf-grunen-ruinen-9zXMb-E8pI0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+* Image: Photo by <a href="https://unsplash.com/de/@souvenirpixels?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">James Wheeler</a> on <a href="https://unsplash.com/de/fotos/graues-holz-auf-grunen-ruinen-9zXMb-E8pI0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 * Music: Temple of the Manes Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 3.0 License
 http://creativecommons.org/licenses/by/3.0/
 
 # Copyright
-The "*Tutorils Historical Encyclopedias*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
+The "*Tutoril's Historical Encyclopedias*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
 
-"*Tutorils Historical Encyclopedias*" as a whole is licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
+"*Tutoril's Historical Encyclopedias*" as a whole is licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
