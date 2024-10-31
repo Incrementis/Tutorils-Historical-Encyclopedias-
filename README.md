@@ -1,2 +1,85 @@
 # Tutorils-Historical-Encyclopedias-
-Contains encyclopedias of in-game history book series to eliminate searching for the history book parts.
+## NOTE 
+This is a work in progress and an alpha release. This means that most things are not implemented and the mod is subject to heavy changes. Use this mod with caution!!
+
+## Idea
+This mod is fanfiction!
+It contains encyclopedias of in-game history book series to eliminate searching for the history book parts.
+The books are:
+* History of Shadowdale(13 Books)
+* History of the Drow(2 Books)
+* History of the North(10 Books)
+* History of Waterdeep(6 Books)
+
+In addition, the encyclopedias have a “Reading-Sequence”(like the Dream- or Chapter-Sequence). This can be activated within the description window using the “READ” button.
+The button first activates a dialog with a relatively short description and then the “Reading-Sequence”.
+Each sequence is accompanied by music and voice. It should also be noted that each “Reading-Sequence” has its own background image within the sequence.
+
+Furthermore, the encyclopedias have a custom drag-and-drop sound and the items can only be equipped in the left quickslot due to their size and weight.
+
+Each encyclopedia has a unique icon image in its inventory.
+They also share a unique ground icon with a custom highlight, showing that they are limited and magical.
+
+A total of 21 images were created that can be found as a description image depending on the number of books an encyclopedia covers. For example, "History of the Drow" has two. Depending on the number of images that a description image must use, these are correspondingly small.
+
+## Supported Games
+* SoD (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
+* Not-Yet BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
+* Not-Yet BG2:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
+* Not-Yet IWD:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
+
+## Operating Systems
+* Tested on Windows 11 and is likely to work on other operating systems
+
+## Languages
+* English
+* Not-Yet Deutsch
+
+## Installation
+1. Download the latest version
+2. Unzip the file
+3. Navigate into the unzipped folder until you see the "*tutorils_he*" folder.
+4. Copy the folder "*tutorils_he*" and the file "*Setup-tutorils_he.exe*" and paste them into your Baldur's Gate Enhanced Edition(SoD) game folder.
+5. Start "*Setup-tutorils_he.exe*" and select the installation language.
+
+## Troubleshooting
+### There are known issues when installing SOD as DLC for BG:EE
+Here is a solution:
+
+* Before "Akun's Gear" is installed(If it is already installed, uninstall it before installing SOD by launching "*Setup-akgear.exe*".):
+	1. SOD needs to be installed as BG:EE DLC 
+	2. and after that [DLCmerger](https://github.com/Argent77/A7-DlcMerger/releases) needs to be installed.
+
+## More Information
+Still in works!
+
+## Special Thanks
+Thanks to ["The Gibberlings 3"](https://www.gibberlings3.net/forums/) forum users, Infinity Engine discord server users and ["Spellhold Studios"](http://www.shsforums.net/) who helped me with hints and information:
+
+* Bub
+* Suy
+* Argent77
+* Cuv
+* Subtledoctor
+* The Artisan
+* RoyalProtector
+* zenblack
+* CamDawg
+
+Thanks for offering code
+* Ardanis [Toss your semi-useful WeiDU macros here](https://www.gibberlings3.net/forums/topic/28835-toss-your-semi-useful-weidu-macros-here/?do=findComment&comment=254219) (It has been heavily modified on my part)
+
+## Credits
+### "History of the Drow"
+* Image: <a href="https://commons.wikimedia.org/wiki/File:Falero_Luis_Ricardo_Lily_Fairy_1888.jpg">Luis Ricardo Falero</a>, Public domain, via Wikimedia Commons
+
+* Image: Foto von <a href="https://unsplash.com/de/@souvenirpixels?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">James Wheeler</a> auf <a href="https://unsplash.com/de/fotos/graues-holz-auf-grunen-ruinen-9zXMb-E8pI0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+* Music: Temple of the Manes Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+
+# Copyright
+The "*Tutorils Historical Encyclopedias*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
+
+"*Tutorils Historical Encyclopedias*" as a whole is licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).

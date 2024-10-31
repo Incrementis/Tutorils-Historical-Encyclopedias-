@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.0.1~
+VERSION ~v0.1.0~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -19,6 +19,7 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/lib/errors.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/2daHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/IdsHandling.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/dialogTlkFunctionalities.tph~
 
 END// End of "ALWAYS"
 
@@ -31,6 +32,7 @@ END// End of "ALWAYS"
 LANGUAGE
 	~English~	// Language
 	~English~	// Directory
+	~tutorils_he/English/!_global.tra~
 	~tutorils_he/English/!_setup.tra~
 	~tutorils_he/English/!_hoftd.tra~
 	~tutorils_he/English/!_warnings.tra~
@@ -40,6 +42,7 @@ LANGUAGE
 LANGUAGE
 	~Deutsch~	// Language
 	~German~	// Directory
+	~tutorils_he/Deutsch/!_global.tra~
 	~tutorils_he/Deutsch/!_setup.tra~
 	~tutorils_he/Deutsch/!_hoftd.tra~
 	~tutorils_he/Deutsch/!_warnings.tra~
@@ -53,6 +56,42 @@ BEGIN @1 LABEL "!_-TutorilsHistoricalEncyclopedias-Main" DESIGNATED 1000
 // GLOBAL INCLUDES(Don't touch this!)
 // ----------------------------------	
 INCLUDE ~%MOD_FOLDER%/laf/errors/!_CheckIEgames.tpa~
+
+// TODO FOLLOWING CODE: CHECK IF REFACTORING IS NEEDED
+// ---------------------------------------------------
+// Creates an array with book item names to filter their text
+ACTION_DEFINE_ARRAY books_history_of_the_drow
+BEGIN 
+	~BOOK38.ITM~
+	~BOOK39.ITM~
+END
+
+// Loop variables
+OUTER_SPRINT book_text ~~
+OUTER_SPRINT HOFTD_book_text ~~
+// Loops through the books, reads the text and concatenates
+OUTER_FOR (indexBooks = 0; VARIABLE_IS_SET $books_history_of_the_drow(~%indexBooks%~); ++indexBooks) BEGIN
+	// Gets specific game shortcut
+	OUTER_TEXT_SPRINT book $books_history_of_the_drow(~%indexBooks%~)
+
+	COPY_EXISTING ~%book%~ override
+		READ_LONG 0x50 reftext // This gets the reference number from the dialog.tlk
+		
+		// Gets text by stringref and stores it into book_text
+		GET_STRREF ~%reftext%~ book_text
+		// Concatenating
+		SPRINT HOFTD_book_text ~%HOFTD_book_text%%WNL%~^~%WNL%%book_text%~
+	BUT_ONLY
+
+	// MONITORING: TODO DELETE PRINTS!
+	//PRINT  ~HOFTD_book_text:%HOFTD_book_text%~
+END
+
+// Gets the the stringref for the button which references to the button lable. 
+OUTER_SET button = RESOLVE_STR_REF(@100)
+// Compile d file to DLG and the tra file is needed to identifiy which tra file it should use?
+COMPILE ~%MOD_FOLDER%/DLG/!_HOFTD.d~
+// --------------------------------------------------------
 
 
 // CREATING ITEM FILES
@@ -69,6 +108,18 @@ COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
 // -----------------------
 COPY ~%MOD_FOLDER%/sound/inventory~ ~override~
 COPY ~%MOD_FOLDER%/sound/sequence~ 	~override~
+// MOS FILES FOR ALL ITEMS
+// -----------------------
+COPY ~%MOD_FOLDER%/MOS~ ~override~
+// 2DA FILES FOR ALL ITEMS
+// -------------------------------------------------------------------------------------------------------------
+// TODO: CHECK IF REFACTORING IS NEEDED
+// Makes item conversable(Item, text, dialog file)
+APPEND ~ITEMDIAL.2DA~ ~!_HOFTD      %button%  !_HOFTD~
+// Information for the Reading Sequence
+COPY "%MOD_FOLDER%/2DA/!_RESQ00.2DA" override
+REPLACE ~111~ ~History of the Drow~
+REPLACE ~222~ ~%HOFTD_book_text%~
 
 
 // ITEM CONSTANTS HEADER(Don't touch this!)
@@ -101,8 +152,8 @@ OUTER_SET ITM_NUMBER_OF_ABILITIES	= 0x0068
 // ----------------------------	
 OUTER_SPRINT signature 			 ~ITM~
 OUTER_SPRINT version 			 ~V1~	
-OUTER_SET price	 				= 250
-OUTER_SET weight 				= 3
+OUTER_SET price	 				= 10
+OUTER_SET weight 				= 30
 OUTER_SET lore 					= 10
 OUTER_SET min_strength 			= 6
 OUTER_SET min_level 			= 4
@@ -111,7 +162,7 @@ OUTER_SET type 					= 0x14		// E.g. 0x14 = value 20 for category "Large Swords"
 OUTER_SET weapon_proficiency 	= 0x5E		// E.g. Katana
 OUTER_SET animation		 		= 0x3353	// E.g. S3-Katana
 // Binaries result in "Droppable", "Displayable", "Not copyable", "Magical"
-OUTER_SET flags 				= 0b00000000000000000000000001101100
+OUTER_SET flags 				= 0b00000000000000000000100001101100
 // Next five variables result in item only usable by Wizard Slayer
 OUTER_SET unusable_by			= 0b01100000011111111111011111000000
 OUTER_SET unusable_kit1			= 0b11111111
@@ -132,14 +183,17 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 	SET L_enchantment = 1
 	SPRINT L_ground_icon 		~!_GHOFTD~				
 	SPRINT L_description_image 	~!_CHOFTD~
-	SPRINT L_inventory_icon 	~!_IHOFTD~	
+	SPRINT L_inventory_icon 	~!_IHOFTD~
+	// Concatenates charge ability description with book text
+	SPRINT L_description_text 	@5	
+	SPRINT L_description_text	~%HOFTD_book_text%~^~%L_description_text%~
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
-	SAY NAME1 				@2 	// Unidentified item name
-	SAY NAME2 				@3 	// Identified item name 		
-	SAY UNIDENTIFIED_DESC 	@4 	// Unidentified description	
-	SAY DESC 				@5 	// Identified description				
+	SAY NAME1 				@2 									// Unidentified item name
+	SAY NAME2 				@3 									// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@4 									// Unidentified description	
+	SAY DESC 							~%L_description_text%~	// Identified description				
 	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
 	WRITE_ASCII	ITM_VERSION				~%version%~		
 	WRITE_ASCII	ITM_GROUND_ICON			~%L_ground_icon%~		
