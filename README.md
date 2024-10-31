@@ -11,6 +11,8 @@ The books are:
 * History of the North(10 Books)
 * History of Waterdeep(6 Books)
 
+The items can be bought in Feldepost's Inn(Beregost).
+
 In addition, the encyclopedias have a “Reading-Sequence”(like the Dream- or Chapter-Sequence). This can be activated within the description window using the “READ” button.
 The button first activates a dialog with a relatively short description and then the “Reading-Sequence”.
 Each sequence is accompanied by music and voice. It should also be noted that each “Reading-Sequence” has its own background image within the sequence.
