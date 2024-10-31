@@ -18,5 +18,35 @@ INT_VAR
 STR_VAR
 	categoryName	= ~ENCYCL!_~
 END
-
-// TODO: see ring26.ITM as an example
+// TODO ITEM ABILITY
+// NEW ITEM HEADER (MACRO/LIB)
+// ---------------------------
+LPF SIMP_ADD_ITEM_HEADER END
+// VALUES TO ITEM HEADER
+// ---------------------
+LPF ALTER_ITEM_HEADER
+	INT_VAR
+		header_type 			= 0 // Check if item header type is "None"
+		match_icon 				= 1 // Use string value of variable "icon"
+		header					= 1 // Alter only x item abilities(0=every item ability)
+		location 				= 3 // Item
+		new_header_type 		= 3 // 1 is Melee(if this is not Melee an item effect will not be added)
+		identify				= 1 // Usable after Identification
+		target					= 1 // Living actor
+		range 					= 30 // Range in feet
+		charges					= 10 // x times of usage until it is depleted
+		drained 				= 0	// Item remains
+		flag_recharge 			= 1 // Recharges after resting
+	STR_VAR
+		icon = ~!_IHOFTD~
+END
+// VALUES TO ITEM HEADER EFFECT
+// ----------------------------
+LPF ADD_ITEM_EFFECT
+	INT_VAR
+		opcode 			= 63// Dispel effects
+		header			= 1 // Add effect to only x item abilities(0=every item ability)
+		type 			= 3 // Add effect to item ability with type x(1 = Melee)
+		target 			= 4 // Preset target
+		probability1 	= 100// x% chance of activating the effect
+END
