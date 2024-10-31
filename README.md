@@ -38,7 +38,7 @@ A total of 21 images were created that can be found as a description image depen
 * Not-Yet Deutsch
 
 ## Installation
-1. Download the latest version
+1. Download the [latest version](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/releases)
 2. Unzip the file
 3. Navigate into the unzipped folder until you see the "*tutorils_he*" folder.
 4. Copy the folder "*tutorils_he*" and the file "*Setup-tutorils_he.exe*" and paste them into your Baldur's Gate Enhanced Edition(SoD) game folder.
