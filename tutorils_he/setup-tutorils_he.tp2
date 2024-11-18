@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.1.0~
+VERSION ~v0.1.8~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -27,8 +27,6 @@ END// End of "ALWAYS"
 // ---------
 // Languages
 // ---------
-// Usage of %MOD_FOLDER% not recommended due to bug(see AL|EN's comment): 
-// https://www.gibberlings3.net/forums/topic/36760-item-mod-bgee-akuns-gear/  
 LANGUAGE
 	~English~	// Language
 	~English~	// Directory
