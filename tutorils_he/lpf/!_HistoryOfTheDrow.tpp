@@ -1,5 +1,5 @@
 // Never Forget: Comments can "lie", but code not so much ;P
-// ITEMTYPE MAINHAND SLOTS ONLY
+// ITEMTYPE LEFT QUICKSLOT ONLY
 // ----------------------------
 LPF ADD_ITEMTYPE_IN_2DA
 	INT_VAR
@@ -11,14 +11,13 @@ LPF ADD_ITEMTYPE_IN_2DA
 		L_newtype 			= typeNumber // L_newtype is used in setup-tutorils_he.tp2
 END
 // OPTIONAL: REGISTER ITEMTYPE/-CATEGORY ENCYCL!_(Encyclopedia)
-// -----------------------------------------------------------------
+// ------------------------------------------------------------
 LPF ADD_ITEMCATEGORY_IN_IDS
 INT_VAR
 	typeNumber 		= L_newtype 
 STR_VAR
 	categoryName	= ~ENCYCL!_~
 END
-// TODO ITEM ABILITY
 // NEW ITEM HEADER (MACRO/LIB)
 // ---------------------------
 LPF SIMP_ADD_ITEM_HEADER END

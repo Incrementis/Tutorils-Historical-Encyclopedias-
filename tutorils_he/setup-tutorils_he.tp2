@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.1.8~
+VERSION ~v0.1.10~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -20,6 +20,21 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/lib/2daHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/IdsHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/dialogTlkFunctionalities.tph~
+	// --- WINDOWS(Works in 64-bit version and possibly 32-bit version too)
+	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~win32~) THEN
+	BEGIN
+		INCLUDE ~%MOD_FOLDER%/lib/windows/dynArrayFunctionalities.tph~
+	END
+	// --- MAC-OS
+	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~osx~) THEN
+	BEGIN
+		INCLUDE ~%MOD_FOLDER%/lib/mac/dynArrayFunctionalities.tph~
+	END
+	// --- LINUX
+	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~unix~) THEN
+	BEGIN
+		INCLUDE ~%MOD_FOLDER%/lib/linux/dynArrayFunctionalities.tph~
+	END
 
 END// End of "ALWAYS"
 
@@ -54,36 +69,96 @@ BEGIN @1 LABEL "!_-TutorilsHistoricalEncyclopedias-Main" DESIGNATED 1000
 // GLOBAL INCLUDES(Don't touch this!)
 // ----------------------------------	
 INCLUDE ~%MOD_FOLDER%/laf/errors/!_CheckIEgames.tpa~
+INCLUDE ~%MOD_FOLDER%/lam/preprocessing/!_DeclareBookArrays.tpa~
 
 // TODO FOLLOWING CODE: CHECK IF REFACTORING IS NEEDED
 // ---------------------------------------------------
-// Creates an array with book item names to filter their text
+// Creates an array with book strefs(see dialog.tlk)
 ACTION_DEFINE_ARRAY books_history_of_the_drow
 BEGIN 
-	~BOOK38.ITM~
-	~BOOK39.ITM~
+	~13165~
+	~13166~
+END
+// Creates an array with sound file names
+ACTION_DEFINE_ARRAY voces_history_of_the_drow
+BEGIN 
+	~!_HOTD01~
+	~!_HOTD02~
 END
 
-// Loop variables
-OUTER_SPRINT book_text ~~
+// Concatenate all text from books
 OUTER_SPRINT HOFTD_book_text ~~
-// Loops through the books, reads the text and concatenates
-OUTER_FOR (indexBooks = 0; VARIABLE_IS_SET $books_history_of_the_drow(~%indexBooks%~); ++indexBooks) BEGIN
-	// Gets specific game shortcut
-	OUTER_TEXT_SPRINT book $books_history_of_the_drow(~%indexBooks%~)
+OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_the_drow(~%indexVocesBooks%~); ++indexVocesBooks) BEGIN
+	// GETS DATA
+	// ---------
+	// Gets specific text strref from book
+	OUTER_SPRINT book $books_history_of_the_drow(~%indexVocesBooks%~)
+	// Gets the specific vox sound file from the list
+	OUTER_SPRINT vox $voces_history_of_the_drow(~%indexVocesBooks%~)
+	// Gets the text of the book from dialog.tlk
+	ACTION_GET_STRREF ~%book%~ book_text
+	// Gets new strref and writes the specifci book text and sound into the specific strref position in dialog.tlk
+	LAF RESOLVE_STR_REF_WITH_STRINGS
+		STR_VAR
+			text 	= ~%book_text%~
+			sound	= ~%vox%~
+		RET
+			stringref = strRef
+	END
+	// Stores string references for later insertion into the specific 2DA file
+	OUTER_SET 		~!_position~ 	= indexVocesBooks
+	OUTER_SET 		~!_maxSlots~ 	= HOFTD_numOfStrrefs
+	OUTER_SET		~!_collected~	= 0
+	OUTER_SPRINT 	~!_useArrayName~ ~HOFTD_strrefs~
+	OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
+	LAM DYN_ARRAY_SET_VALUES
+	// All values collected
+	ACTION_IF(indexVocesBooks = (HOFTD_numOfStrrefs - 1)) THEN
+	BEGIN
+		// To be on the safe side, initilaizes all macros variables 
+		// and calls macros DYN_ARRAY_SET_VALUES
+		OUTER_SET 		~!_position~ 	=	indexVocesBooks
+		OUTER_SET 		~!_maxSlots~ 	=	HOFTD_numOfStrrefs
+		OUTER_SET		~!_collected~	=	1
+		OUTER_SPRINT 	~!_useArrayName~ ~HOFTD_strrefs~
+		OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
+		LAM DYN_ARRAY_SET_VALUES
+	END
 
-	COPY_EXISTING ~%book%~ override
-		READ_LONG 0x50 reftext // This gets the reference number from the dialog.tlk
-		
-		// Gets text by stringref and stores it into book_text
-		GET_STRREF ~%reftext%~ book_text
-		// Concatenating
-		SPRINT HOFTD_book_text ~%HOFTD_book_text%%WNL%~^~%WNL%%book_text%~
-	BUT_ONLY
+	// CONCATENATING
+	// -------------
+	// WINDOWS(Works in 64-bit version and possibly 32-bit version too)
+	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~win32~) THEN
+	BEGIN
+		OUTER_SPRINT HOFTD_book_text ~%HOFTD_book_text%%WNL%~^~%WNL%%book_text%~
+	END
+	// MAC-OS
+	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~osx~) THEN
+	BEGIN
+		OUTER_SPRINT HOFTD_book_text ~%HOFTD_book_text%%MNL%~^~%MNL%%book_text%~
+	END
+	// LINUX
+	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~unix~) THEN
+	BEGIN
+		OUTER_SPRINT HOFTD_book_text ~%HOFTD_book_text%%LNL%~^~%LNL%%book_text%~
+	END
 
 	// MONITORING: TODO DELETE PRINTS!
-	//PRINT  ~HOFTD_book_text:%HOFTD_book_text%~
+	PRINT ~indexVocesBooks:%indexVocesBooks%~
+	PRINT  ~HOFTD_book_text:%HOFTD_book_text%~
+	OUTER_SPRINT test0 $~HOFTD_strrefs~(~%indexVocesBooks%~)
+	PRINT ~strrefs-loop:%test0%~
+	
+END// End of "OUTER_FOR"
+// MONITORING: TODO DELETE PRINTS!
+OUTER_FOR(index = 0; index < 2; ++index) 
+BEGIN
+	OUTER_SPRINT test0 $~HOFTD_strrefs~(~%index%~)
+	PRINT ~strrefs-loop:%test0%~
 END
+OUTER_SPRINT test0 $~HOFTD_strrefs~(0)
+OUTER_SPRINT test1 $~HOFTD_strrefs~(1)
+PRINT ~strrefs:%test0%,%test1%~	
 
 // Gets the the stringref for the button which references to the button lable. 
 OUTER_SET button = RESOLVE_STR_REF(@100)
