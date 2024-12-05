@@ -2,6 +2,8 @@
 ## NOTE 
 This is a work in progress and an alpha release. This means that most things are not implemented and the mod is subject to heavy changes. Use this mod with caution!!
 
+⚠️ This zip file is almost 2GB in size (due to .git). The download can take a very long time. At this stage of the project I do not recommend downloading it.
+
 ## Idea
 This mod is fanfiction!
 It contains encyclopedias of in-game history book series to eliminate searching for the history book parts.
@@ -52,7 +54,9 @@ Here is a solution:
 	1. SOD needs to be installed as BG:EE DLC 
 	2. and after that [DLCmerger](https://github.com/Argent77/A7-DlcMerger/releases) needs to be installed.
 
-## More Information
+## More Information(TODO)
+* TODO: Achievements in competition
+* TODO: Effects of every encyclopedia
 Still in works!
 
 ## Special Thanks
@@ -72,6 +76,11 @@ Thanks for offering code
 * Ardanis [Toss your semi-useful WeiDU macros here](https://www.gibberlings3.net/forums/topic/28835-toss-your-semi-useful-weidu-macros-here/?do=findComment&comment=254219) (It has been heavily modified on my part)
 
 ## Credits
+### General
+* Image by <a href="https://unsplash.com/de/@heathergreengreen?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Heather Green</a> auf <a href="https://unsplash.com/de/fotos/ein-altes-stuck-papier-mit-abgerissenen-kanten-sJAhA7oAkeY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> used as paper texture
+
+* Image: Reading sequence frames partially used from Beamdog's Enhanced Edition games from the sequences chapter
+
 ### "History of the Drow"
 * Image: <a href="https://commons.wikimedia.org/wiki/File:Falero_Luis_Ricardo_Lily_Fairy_1888.jpg">Luis Ricardo Falero</a>, Public domain, via Wikimedia Commons
 
@@ -83,5 +92,7 @@ http://creativecommons.org/licenses/by/3.0/
 
 # Copyright
 The "*Tutoril's Historical Encyclopedias*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
+
+Please note that I do not claim Loremaster status and therefore the pronunciation of the texts in "*Tutoril's Historical Encyclopedias*" may be incorrect.
 
 "*Tutoril's Historical Encyclopedias*" as a whole is licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).

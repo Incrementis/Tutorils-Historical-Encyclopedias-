@@ -1,0 +1,25 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+
+// --- INITIALIZE NUMBER OF ARRAY ELEMENTS
+OUTER_SET HOFTD_numOfStrrefs    = 3     // History of the Drow
+OUTER_SET HOFW_numOfStrrefs     = 7     // History of Waterdeep
+OUTER_SET HOFTN_numOfStrrefs    = 11    // History of the North
+OUTER_SET HOFS_numOfStrrefs     = 14    // History of Shadowdale
+
+// --- DECLARE DYN ARRAY FOR REF-NUMBERS(strref numbers found in dialog.tlk)
+// History of the Drow
+OUTER_SET 		~!_slotNumbers~ 	= ~%HOFTD_numOfStrrefs%~
+OUTER_SPRINT 	~!_setArrayName~	~HOFTD_strrefs~ 
+LAM DYN_ARRAY_CREATE
+// History of Waterdeep
+OUTER_SET 		~!_slotNumbers~ 	= ~%HOFW_numOfStrrefs%~
+OUTER_SPRINT 	~!_setArrayName~	~HOFW_strrefs~ 
+LAM DYN_ARRAY_CREATE
+// History of the North
+OUTER_SET 		~!_slotNumbers~ 	= ~%HOFTN_numOfStrrefs%~
+OUTER_SPRINT 	~!_setArrayName~	~HOFTN_strrefs~ 
+LAM DYN_ARRAY_CREATE
+// History of Shadowdale
+OUTER_SET 		~!_slotNumbers~ 	= ~%HOFS_numOfStrrefs%~
+OUTER_SPRINT 	~!_setArrayName~	~HOFS_strrefs~ 
+LAM DYN_ARRAY_CREATE
