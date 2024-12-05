@@ -74,6 +74,9 @@ Thanks to ["The Gibberlings 3"](https://www.gibberlings3.net/forums/) forum user
 Thanks for offering code
 * Ardanis [Toss your semi-useful WeiDU macros here](https://www.gibberlings3.net/forums/topic/28835-toss-your-semi-useful-weidu-macros-here/?do=findComment&comment=254219) (It has been heavily modified on my part)
 
+Thanks for offering troubleshooting
+* Dark0Dave for his help in [fixing this Git issue](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/issues/19#issuecomment-2521566664)
+
 ## Credits
 ### General
 * Image by <a href="https://unsplash.com/de/@heathergreengreen?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Heather Green</a> auf <a href="https://unsplash.com/de/fotos/ein-altes-stuck-papier-mit-abgerissenen-kanten-sJAhA7oAkeY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> used as paper texture
