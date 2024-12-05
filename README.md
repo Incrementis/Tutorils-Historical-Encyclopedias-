@@ -2,7 +2,6 @@
 ## NOTE 
 This is a work in progress and an alpha release. This means that most things are not implemented and the mod is subject to heavy changes. Use this mod with caution!!
 
-⚠️ This zip file is almost 2GB in size (due to .git). The download can take a very long time. At this stage of the project I do not recommend downloading it.
 
 ## Idea
 This mod is fanfiction!
