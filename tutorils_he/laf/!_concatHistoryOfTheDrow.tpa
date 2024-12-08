@@ -96,20 +96,5 @@ OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_the_drow(~%ind
 		OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
 		LAM DYN_ARRAY_SET_VALUES
 	END
-
-	// MONITORING: TODO DELETE PRINTS!
-	/*PRINT ~indexVocesBooks:%indexVocesBooks%~
-	PRINT  ~HOFTD_book_text:%HOFTD_book_text%~
-	OUTER_SPRINT test0 $~HOFTD_strrefs~(~%indexVocesBooks%~)
-	PRINT ~strrefs-loop:%test0%~*/
 	
 END// End of "OUTER_FOR"
-// MONITORING: TODO DELETE PRINTS!
-/*OUTER_FOR(index = 0; VARIABLE_IS_SET $~HOFTD_strrefs~(~%index%~); ++index) 
-BEGIN
-	OUTER_SPRINT test0 $~HOFTD_strrefs~(~%index%~)
-	PRINT ~strrefs-loop:%test0%~
-END*/
-//OUTER_SPRINT test0 $~HOFTD_strrefs~(0)
-//OUTER_SPRINT test1 $~HOFTD_strrefs~(1)
-//PRINT ~strrefs:%test0%,%test1%~	

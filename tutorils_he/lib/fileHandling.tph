@@ -1,0 +1,111 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+//--------------------------------------//
+// Contains self defined file operations//
+//--------------------------------------//
+
+
+// ---DEFAULT/INIT ARGUMENTS(Don't change this!)
+// USAGE: 	Copy the variable 1 to 1 to somewhere else where you need it 
+// 			and change its value before before calling the macro.
+//			This macro can not be used in patching.
+OUTER_SPRINT ~!_filename~ ~!_NULL~
+// Purpose: Creates a file on a defined location(NOTE: default location is the gamefolder)
+// --------------------------------------------------------------------------------------
+// Parameters:|
+// ============
+// !_filename -> The name of the file or the path including the file(e.g. "weidu_external/workspace/filename.tph")
+DEFINE_ACTION_MACRO CREATE_FILE
+BEGIN
+	// ALL VARIABLES IN THIS MACRO AND DEFAULT VALUES
+	// ----------------------------------------------
+	// STRING ~!_filename~ 	~!_NULL~
+	// ----------------------------------------------
+
+	// Checks if a proper file name is given
+	ACTION_IF(~%!_filename%~ STRING_EQUAL ~!_NULL~) THEN
+	BEGIN
+		FAIL ~DEFINE_ACTION_MACRO CREATE_FILE -> The correct argument for filename is missing. The argument !_NULL is forbidden.~
+	END
+
+	// Defines file inline then creates and copies file to location
+	<<<<<<<<./weidu_external/workspace/temporaryFile.tph
+	>>>>>>>>
+	COPY ~./weidu_external/workspace/temporaryFile.tph~ ~./%!_filename%~
+	
+	// Resets macro variable
+	OUTER_SPRINT ~!_filename~ ~!_NULL~
+	
+END// End of "CREATE_FILE"
+
+
+// Purpose: Changes the extension of files with a specific extension (e.g., Audio.ogg to Audio.wav).
+//          The original files are backed up by WeiDU to be restored upon uninstallation.
+// -------------------------------------------------------------------------------------------------
+// Parameters:|
+// ============
+// printBash 	-> If set to 1, prints debugging information about the current file being processed(optional).
+// destructive	-> If set to 1, deletes the original files with the old extension after renaming(optional).
+// sourceDir	-> The directory containing the files to be renamed.
+// oldExtension -> The original file extension to be replaced.
+// newExtension	-> The new file extension to be applied.
+DEFINE_DIMORPHIC_FUNCTION ~CHANGE_EXTENSION~
+	INT_VAR
+		printBash 		= "-1"
+		destructive 	= "-1"
+	STR_VAR
+		sourceDir 		= "!_NULL"
+		oldExtension	= "!_NULL"
+		newExtension	= "!_NULL"
+BEGIN
+	// Checks if valid sourceDir argument is given.
+	ACTION_IF (~%sourceDir%~ STRING_EQUAL ~!_NULL~) THEN 
+	BEGIN
+		FAIL ~DEFINE_DIMORPHIC_FUNCTION CHANGE_EXTENSION -> The correct argument for sourceDir is missing. The argument !_NULL is forbidden.~
+	END
+	// Checks if valid newExtension argument is given.
+	ACTION_IF (~%newExtension%~ STRING_EQUAL ~!_NULL~) THEN 
+	BEGIN
+		FAIL ~DEFINE_DIMORPHIC_FUNCTION CHANGE_EXTENSION -> The correct argument for newExtension is missing. The argument !_NULL is forbidden.~
+	END
+	// Checks if valid oldExtension argument is given.
+	ACTION_IF (~%oldExtension%~ STRING_EQUAL ~!_NULL~) THEN 
+	BEGIN
+		FAIL ~DEFINE_DIMORPHIC_FUNCTION CHANGE_EXTENSION -> The correct argument for oldExtension is missing. The argument !_NULL is forbidden.~
+	END
+	// Checks if old and new extensions are equal.
+	ACTION_IF (~%oldExtension%~ STRING_EQUAL_CASE ~%newExtension%~) THEN 
+	BEGIN
+		FAIL ~DEFINE_DIMORPHIC_FUNCTION CHANGE_EXTENSION -> Old extension and new extension are the same.~
+	END
+	// Checks if directory exists.
+	ACTION_IF NOT(DIRECTORY_EXISTS ~%sourceDir%~) THEN
+	BEGIN
+		FAIL ~DEFINE_DIMORPHIC_FUNCTION CHANGE_EXTENSION -> %sourceDir% directory doesn't exist.~
+	END
+	
+	// Iterates over files in the source directory with the old extension.
+	ACTION_BASH_FOR ~%sourceDir%~ ~^.+\.%oldExtension%$~ 
+	BEGIN
+		
+		// Prints debugging information if enabled.
+		ACTION_IF (~%printBash%~ = 1) THEN
+		BEGIN
+			PRINT ~---------START---------~
+			PRINT "BASH_FOR_DIRECTORY: 	%BASH_FOR_DIRECTORY%"// e.g. "somedir"
+			PRINT "BASH_FOR_FILESPEC: 	%BASH_FOR_FILESPEC%" // e.g. "somedir/yourfile.cre"
+			PRINT "BASH_FOR_FILE: 		%BASH_FOR_FILE%"	 // e.g. "yourfile.cre"		
+			PRINT "BASH_FOR_RES: 		%BASH_FOR_RES%"		 // e.g. "yourfile"	
+			PRINT "BASH_FOR_EXT: 		%BASH_FOR_EXT%"		 // e.g. "cre"
+			PRINT "BASH_FOR_SIZE: 		%BASH_FOR_SIZE%" 	 // e.g. <size of somedir/yourfile.cre>
+		END
+		
+		// Renames the file with the new extension.
+		COPY "%BASH_FOR_FILESPEC%" "%BASH_FOR_DIRECTORY%/%BASH_FOR_RES%.%newExtension%"
+		// Optionally deletes the original file if destructive mode is enabled.
+		ACTION_IF (~%destructive%~ = 1) THEN
+		BEGIN
+			DELETE "%BASH_FOR_FILESPEC%"
+		END
+	END// End of "ACTION_BASH_FOR"
+
+END// End of "CHANGE_EXTENSION"

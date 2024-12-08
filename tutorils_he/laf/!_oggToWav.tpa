@@ -1,0 +1,13 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+
+// Deletes the files with the extension OGG while the new files with WAV extensions are retained.
+// ----------------------------------------------------------------------------------------------
+// --- HISTORY OF THE DROW
+LAF CHANGE_EXTENSION
+	INT_VAR
+		destructive = 1
+	STR_VAR
+		sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~
+		oldExtension	= ~ogg~
+		newExtension	= ~wav~
+END

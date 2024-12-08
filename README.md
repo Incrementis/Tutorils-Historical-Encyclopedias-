@@ -54,7 +54,16 @@ Here is a solution:
 	2. and after that [DLCmerger](https://github.com/Argent77/A7-DlcMerger/releases) needs to be installed.
 
 ## More Information(TODO)
-* TODO: Achievements in competition
+### Competition
+“*Tutoril's Historical Encyclopedias*” took part in the following competition:
+[2024 Baldur’s Gate Community Creative Craziness Challenge](https://www.gibberlings3.net/forums/topic/38732-2024-baldur%E2%80%99s-gate-community-creative-craziness-challenge/#comment-342226)
+
+Because of this, the mod has achieved in its first alpha state the following achievements:
+
+* "**Worth 1000 words!**"
+*  Hidden achievement unlocked - "**These Walls Contain the World's Knowledge**" -- make something that heavily focuses on lore.
+### TODO
+* TODO: Link to wiki
 * TODO: Effects of every encyclopedia
 Still in works!
 
@@ -95,6 +104,6 @@ http://creativecommons.org/licenses/by/3.0/
 # Copyright
 The "*Tutoril's Historical Encyclopedias*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
 
-Please note that I do not claim Loremaster status and therefore the pronunciation of the texts in "*Tutoril's Historical Encyclopedias*" may be incorrect.
+Please note that I do not claim loremaster status and therefore the pronunciation of the texts in "*Tutoril's Historical Encyclopedias*" may be incorrect.
 
 "*Tutoril's Historical Encyclopedias*" as a whole is licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).

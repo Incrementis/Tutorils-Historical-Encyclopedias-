@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.1.17~
+VERSION ~v0.1.18~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -20,24 +20,8 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/lib/2daHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/IdsHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/dialogTlkFunctionalities.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/fileHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/%WEIDU_OS%/dynArrayFunctionalities.tph~
-	/*
-	// --- WINDOWS(Works in 64-bit version and possibly 32-bit version too)
-	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~win32~) THEN
-	BEGIN
-		INCLUDE ~%MOD_FOLDER%/lib/windows/dynArrayFunctionalities.tph~
-	END
-	// --- MAC-OS
-	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~osx~) THEN
-	BEGIN
-		INCLUDE ~%MOD_FOLDER%/lib/mac/dynArrayFunctionalities.tph~
-	END
-	// --- LINUX
-	ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~unix~) THEN
-	BEGIN
-		INCLUDE ~%MOD_FOLDER%/lib/linux/dynArrayFunctionalities.tph~
-	END
-	*/
 END// End of "ALWAYS"
 
 
@@ -71,8 +55,9 @@ BEGIN @1 LABEL "!_-TutorilsHistoricalEncyclopedias-Main" DESIGNATED 1000
 // GLOBAL INCLUDES(Don't touch this!)
 // ----------------------------------	
 INCLUDE ~%MOD_FOLDER%/laf/errors/!_CheckIEgames.tpa~
-INCLUDE ~%MOD_FOLDER%/lam/!_declareBookArrays.tpa~
+INCLUDE ~%MOD_FOLDER%/lam/!_declareBookArrays.tpa~ // Must be before "!_concatHistoryOfTheDrow.tpa"
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheDrow.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/!_oggToWav.tpa~
 
 
 // DIALOG FILES FOR READING SEQUENCES

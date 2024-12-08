@@ -44,6 +44,7 @@ BEGIN
 	BEGIN
 		FAIL ~DEFINE_DIMORPHIC_FUNCTION ADD_ITEMTYPE_IN_2DA -> The argument '%inventorySlotType%' for inventorySlotType is too small. The minimum allowed number is 0, because there are no negative slot numbers in game. Please adjust the inventorySlotType value to be within the allowed range.~
 	END
+	
 
 	COPY_EXISTING ~ITEMTYPE.2DA~ ~override~
 		// Gets the number of columns and rows in the file.
@@ -95,7 +96,7 @@ END // End of "ADD_ITEMTYPE_IN_2DA"
 //			It is basically a simplified "chapter 2da" file with stricter limitations.
 //			Refer to this forum thread for a deeper "chapter 2da" explanation:
 // 			https://www.gibberlings3.net/forums/topic/38904-what-do-the-elements-of-chapterxxx2da-mean/
-//			2DA File Format:
+// 2DA File Format:
 // --------------------------------------------------------------
 //	2DA     V1.0
 //	<background image>
@@ -122,6 +123,16 @@ STR_VAR
 	bgImage 		= "!_NULL"
 	strrefArray 	= "!_NULL"
 BEGIN
+	// Check if valid 2daFilename argument is given.
+	ACTION_IF (~%2daFilename%~ STRING_EQUAL ~!_NULL~) THEN 
+	BEGIN
+		FAIL ~DEFINE_ACTION_FUNCTION CREATE_READINGSEQUENCE_2DA -> The correct argument for 2daFilename is missing. The argument !_NULL is forbidden.~
+	END
+	// Check if valid bgImage argument is given.
+	ACTION_IF (~%bgImage%~ STRING_EQUAL ~!_NULL~) THEN 
+	BEGIN
+		FAIL ~DEFINE_ACTION_FUNCTION CREATE_READINGSEQUENCE_2DA -> The correct argument for bgImage is missing. The argument !_NULL is forbidden.~
+	END
 	// Checks if file name has more than 8 characters
 	ACTION_IF (STRING_LENGTH ~%2daFilename%~ > 8) THEN
 	BEGIN
@@ -141,11 +152,11 @@ BEGIN
 	END
 
 	// Defines file inline then creates and copies file to location(see COPY)
-	<<<<<<<<./weidu_external/workspace/temporaryFile.2da
+	<<<<<<<<./weidu_external/workspace/!_temporaryFile.2da
 	2DA V1.0
 	%bgImage%>>>>>>>>
 
-	COPY ~./weidu_external/workspace/temporaryFile.2da~ ~./%2daLocation%/%2daFilename%.2da~ EVALUATE_BUFFER
+	COPY ~./weidu_external/workspace/!_temporaryFile.2da~ ~./%2daLocation%/%2daFilename%.2da~ EVALUATE_BUFFER
 		// Loop variables
 		SPRINT strrefPrevious 		~~
 		SPRINT coulmnIndexPrevious 	~~
