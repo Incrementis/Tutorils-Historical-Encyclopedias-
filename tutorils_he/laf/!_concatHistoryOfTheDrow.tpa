@@ -17,6 +17,7 @@ BEGIN
 	~!_HOTD01~
 END
 
+
 // MAIN LOOP
 // ---------
 // Concatenates Book texts and store string references
@@ -98,3 +99,14 @@ OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_the_drow(~%ind
 	END
 	
 END// End of "OUTER_FOR"
+
+
+// CREATE READINGSEQUENCE
+// ----------------------
+// Creates a "THE:History of the Drow" 2da file for reading sequence(Default-folder: override)
+LAF CREATE_READINGSEQUENCE_2DA
+	STR_VAR
+		2daFilename		= "!_RESQ00"
+		bgImage 		= "!_RESQ00"		// See MOS-folder
+		strrefArray 	= ~HOFTD_strrefs~ 	// Initialized in "!_concatHistoryOfTheDrow.tpa"
+END

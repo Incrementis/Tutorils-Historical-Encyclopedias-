@@ -1,4 +1,12 @@
 // Never Forget: Comments can "lie", but code not so much ;P
+// REGISTER CONVERSABLE ITEM
+// -------------------------
+LPF ADD_CONVERSABLE_ITEM_IN_2DA
+	INT_VAR
+		strref 		= ~%button%~ // See "setup-tutorils_he.tp2"
+	STR_VAR
+		itemName 	= "!_HOFTD"
+END
 // ITEMTYPE LEFT QUICKSLOT ONLY
 // ----------------------------
 LPF ADD_ITEMTYPE_IN_2DA

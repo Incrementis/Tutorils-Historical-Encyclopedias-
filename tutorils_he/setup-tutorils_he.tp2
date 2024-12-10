@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.1.18~
+VERSION ~v0.1.20~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -89,28 +89,6 @@ COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~ 	~override~
 COPY ~%MOD_FOLDER%/MOS~ ~override~
 
 
-// 2DA FILES FOR ALL ITEMS
-// -----------------------
-// Creates a "THE:History of the Drow" 2da file for reading sequence(Default-folder: override)
-LAF CREATE_READINGSEQUENCE_2DA
-	STR_VAR
-		2daFilename		= "!_RESQ00"
-		bgImage 		= "!_RESQ00"		// See MOS-folder
-		strrefArray 	= ~HOFTD_strrefs~ 	// Initialized in "!_concatHistoryOfTheDrow.tpa"
-END
-// TODO: CHECK IF REFACTORING IS NEEDED
-// Makes item conversable(Item, text, dialog file)
-// Gets the the stringref for the button which references to the button lable. 
-OUTER_SET button = RESOLVE_STR_REF(@100)
-APPEND ~ITEMDIAL.2DA~ ~!_HOFTD      %button%  !_HOFTD~
-// Information for the Reading Sequence
-//COPY "%MOD_FOLDER%/2DA/!_RESQ00.2DA" override
-//REPLACE ~111~ ~History of the Drow~
-//REPLACE ~222~ ~%HOFTD_book_text%~
-
-
-
-
 // ITEM CONSTANTS HEADER(Don't touch this!)
 // ----------------------------------------
 OUTER_SET ITM_SIGNATURE				= 0x0000
@@ -121,7 +99,7 @@ OUTER_SET ITM_LORE					= 0x0042
 OUTER_SET ITM_MIN_STRENGTH			= 0x0026
 OUTER_SET ITM_MIN_LEVEL				= 0x0024
 OUTER_SET ITM_MAX_IN_STACK			= 0x0038 
-OUTER_SET ITM_ENCHANTMENT			= 0x0060 
+OUTER_SET ITM_ENCHANTMENT			= 0x0060 // E.g. "Battle Axe +3" -> Enchantment = 3
 OUTER_SET ITM_FLAGS					= 0x0018
 OUTER_SET ITM_TYPE					= 0x001c
 OUTER_SET ITM_UNUSABLE_BY			= 0x001e
@@ -138,26 +116,28 @@ OUTER_SET ITM_NUMBER_OF_ABILITIES	= 0x0068
 
 
 // GLOBAL VARIABLES (Changable)
-// ----------------------------	
+// ----------------------------
+// Gets the the stringref for the button which references to the button text.
+OUTER_SET button 				= RESOLVE_STR_REF(@100)	 
 OUTER_SPRINT signature 			 ~ITM~
 OUTER_SPRINT version 			 ~V1~	
 OUTER_SET price	 				= 10
 OUTER_SET weight 				= 30
 OUTER_SET lore 					= 10
-OUTER_SET min_strength 			= 6
-OUTER_SET min_level 			= 4
-OUTER_SET max_in_stack 			= 1
-OUTER_SET type 					= 0x14		// E.g. 0x14 = value 20 for category "Large Swords"
-OUTER_SET weapon_proficiency 	= 0x5E		// E.g. Katana
-OUTER_SET animation		 		= 0x3353	// E.g. S3-Katana
-// Binaries result in "Droppable", "Displayable", "Not copyable", "Magical"
+//OUTER_SET min_strength 			= 6
+//OUTER_SET min_level 			= 4
+//OUTER_SET max_in_stack 			= 1
+//OUTER_SET type 					= 0x14		// E.g. 0x14 = value 20 for category "Large Swords"
+//OUTER_SET weapon_proficiency 	= 0x5E		// E.g. Katana
+//OUTER_SET animation		 		= 0x3353	// E.g. S3-Katana
+// Binaries result in "Droppable", "Displayable", "Not copyable", "Magical" and "Conversable"
 OUTER_SET flags 				= 0b00000000000000000000100001101100
 // Next five variables result in item only usable by Wizard Slayer
-OUTER_SET unusable_by			= 0b01100000011111111111011111000000
-OUTER_SET unusable_kit1			= 0b11111111
-OUTER_SET unusable_kit2			= 0b11111111
-OUTER_SET unusable_kit3			= 0b11111111
-OUTER_SET unusable_kit4			= 0b11111101
+//OUTER_SET unusable_by			= 0b01100000011111111111011111000000
+//OUTER_SET unusable_kit1			= 0b11111111
+//OUTER_SET unusable_kit2			= 0b11111111
+//OUTER_SET unusable_kit3			= 0b11111111
+//OUTER_SET unusable_kit4			= 0b11111101
 
 
 // PATCHING ITEM FILE "THE:History of the Drow"
@@ -169,7 +149,7 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 
 	// LOCAL VARIABLES
 	// ---------------
-	SET L_enchantment = 1
+	//SET L_enchantment = 1
 	SPRINT L_ground_icon 		~!_GHOFTD~				
 	SPRINT L_description_image 	~!_CHOFTD~
 	SPRINT L_inventory_icon 	~!_IHOFTD~
@@ -193,18 +173,19 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 //	WRITE_LONG 	ITM_UNUSABLE_BY			unusable_by
 	WRITE_SHORT ITM_WEIGHT 				weight 	
 	WRITE_SHORT ITM_LORE 				lore 
-	WRITE_SHORT ITM_TYPE				L_newtype
+	WRITE_SHORT ITM_TYPE				L_newtype // See "lpf/HistoryOfTheDrow.tpp"
 //	WRITE_SHORT ITM_ANIMATION			animation	
 //	WRITE_BYTE	ITM_MIN_STRENGTH 		min_strength
 //	WRITE_BYTE 	ITM_MIN_LEVEL	 		min_level
 //	WRITE_BYTE	ITM_MAX_IN_STACK	 	max_in_stack
-	WRITE_BYTE	ITM_ENCHANTMENT	 		L_enchantment
+//	WRITE_BYTE	ITM_ENCHANTMENT	 		L_enchantment
 //	WRITE_BYTE	ITM_WEAPON_PROFICIENCY	weapon_proficiency
 //	WRITE_BYTE 	ITM_UNUSABLE_KIT1		unusable_kit1	
 //	WRITE_BYTE 	ITM_UNUSABLE_KIT2		unusable_kit2	
 //	WRITE_BYTE 	ITM_UNUSABLE_KIT3		unusable_kit3	
 //	WRITE_BYTE 	ITM_UNUSABLE_KIT4		unusable_kit4
 BUT_ONLY // End patching: ~!_HOFTD.ITM~
+
 
 // PATCHING STORE FILE "Feldepost's Inn"(Beregost)
 // -----------------------------------------------
