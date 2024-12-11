@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.1.20~
+VERSION ~v0.2.20~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -33,9 +33,10 @@ LANGUAGE
 	~English~	// Directory
 	~tutorils_he/English/!_global.tra~
 	~tutorils_he/English/!_setup.tra~
-	~tutorils_he/English/!_hoftd.tra~
 	~tutorils_he/English/!_warnings.tra~
 	~tutorils_he/English/!_errors.tra~
+	~tutorils_he/English/!_HistoryOfTheDrow.tra~
+	~tutorils_he/English/!_HistoryOfWaterdeep.tra~
 
 /*	
 LANGUAGE
@@ -55,20 +56,25 @@ BEGIN @1 LABEL "!_-TutorilsHistoricalEncyclopedias-Main" DESIGNATED 1000
 // GLOBAL INCLUDES(Don't touch this!)
 // ----------------------------------	
 INCLUDE ~%MOD_FOLDER%/laf/errors/!_CheckIEgames.tpa~
-INCLUDE ~%MOD_FOLDER%/lam/!_declareBookArrays.tpa~ // Must be before "!_concatHistoryOfTheDrow.tpa"
-INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheDrow.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/!_2daAndIdsRegistrations.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_oggToWav.tpa~
+INCLUDE ~%MOD_FOLDER%/lam/!_declareBookArrays.tpa~ // Must be before "!_concatHistoryOf<name>.tpa"
+INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheDrow.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfWaterdeep.tpa~
 
 
 // DIALOG FILES FOR READING SEQUENCES
 // ----------------------------------
 // Compile d file to DLG and the tra file is needed to identifiy which tra file it should use?????????????????????
 COMPILE ~%MOD_FOLDER%/DLG/!_HOFTD.d~
+COMPILE ~%MOD_FOLDER%/DLG/!_HOFW.d~
+
 
 
 // CREATING ITEM FILES
 // -------------------
 CREATE ~ITM~ ~!_HOFTD~	// "THE:History of the Drow"
+CREATE ~ITM~ ~!_HOFW~	// "THE:History of Waterdeep"
 
 
 // BAM FILES FOR ALL ITEMS
@@ -80,8 +86,9 @@ COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
 
 // WAV FILES FOR ALL ITEMS
 // -----------------------
-COPY ~%MOD_FOLDER%/sound/inventory~ 		~override~
-COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~ 	~override~
+COPY ~%MOD_FOLDER%/sound/inventory~ 			~override~
+COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~ 		~override~
+COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~ 	~override~
 
 
 // MOS FILES FOR ALL ITEMS
@@ -121,23 +128,9 @@ OUTER_SET ITM_NUMBER_OF_ABILITIES	= 0x0068
 OUTER_SET button 				= RESOLVE_STR_REF(@100)	 
 OUTER_SPRINT signature 			 ~ITM~
 OUTER_SPRINT version 			 ~V1~	
-OUTER_SET price	 				= 10
-OUTER_SET weight 				= 30
 OUTER_SET lore 					= 10
-//OUTER_SET min_strength 			= 6
-//OUTER_SET min_level 			= 4
-//OUTER_SET max_in_stack 			= 1
-//OUTER_SET type 					= 0x14		// E.g. 0x14 = value 20 for category "Large Swords"
-//OUTER_SET weapon_proficiency 	= 0x5E		// E.g. Katana
-//OUTER_SET animation		 		= 0x3353	// E.g. S3-Katana
-// Binaries result in "Droppable", "Displayable", "Not copyable", "Magical" and "Conversable"
 OUTER_SET flags 				= 0b00000000000000000000100001101100
-// Next five variables result in item only usable by Wizard Slayer
-//OUTER_SET unusable_by			= 0b01100000011111111111011111000000
-//OUTER_SET unusable_kit1			= 0b11111111
-//OUTER_SET unusable_kit2			= 0b11111111
-//OUTER_SET unusable_kit3			= 0b11111111
-//OUTER_SET unusable_kit4			= 0b11111101
+OUTER_SPRINT ground_icon 		~!_GENCYC~			
 
 
 // PATCHING ITEM FILE "THE:History of the Drow"
@@ -148,42 +141,67 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_HistoryOfTheDrow.tpp~
 
 	// LOCAL VARIABLES
-	// ---------------
-	//SET L_enchantment = 1
-	SPRINT L_ground_icon 		~!_GHOFTD~				
+	// ---------------	
 	SPRINT L_description_image 	~!_CHOFTD~
 	SPRINT L_inventory_icon 	~!_IHOFTD~
+	SET L_price	 				= 100
+	SET L_weight 				= 5
 	// Concatenates charge ability description with book text
 	SPRINT L_description_text 	@5	
-	SPRINT L_description_text	~%HOFTD_book_text%~^~%L_description_text%~
+	SPRINT L_description_text	~%HOFTD_book_text%~^~%L_description_text%~ // "See lpf/!_HistoryOfTheDrow.tpp~"
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
 	SAY NAME1 				@2 									// Unidentified item name
-	SAY NAME2 				@3 									// Identified item name 		
-	SAY UNIDENTIFIED_DESC 	@4 									// Unidentified description	
+	SAY NAME2 				@3 									// Identified item name
+	SAY UNIDENTIFIED_DESC 	@4 									// Unidentified description
+	SAY DESC 							~%L_description_text%~	// Identified description
+	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
+	WRITE_ASCII	ITM_VERSION				~%version%~
+	WRITE_ASCII	ITM_GROUND_ICON			~%ground_icon%~
+	WRITE_ASCII	ITM_DESCRIPTION_IMAGE	~%L_description_image%~
+	WRITE_ASCII	ITM_INVENTORY_ICON		~%L_inventory_icon%~
+	WRITE_LONG 	ITM_PRICE				L_price
+	WRITE_LONG 	ITM_FLAGS				flags
+	WRITE_SHORT ITM_WEIGHT 				L_weight
+	WRITE_SHORT ITM_LORE 				lore
+	WRITE_SHORT ITM_TYPE				typeEncyclopedia // See "laf/!_2daAndIdsRegistration.tpa"
+BUT_ONLY // End patching: ~!_HOFTD.ITM~
+
+
+// PATCHING ITEM FILE "THE:History of Waterdeep"
+// -------------------------------------------
+COPY_EXISTING ~!_HOFW.ITM~ override
+	// LOCAL INCLUDES(Content changeable)
+	// ----------------------------------
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_HistoryOfWaterdeep.tpp~
+
+	// LOCAL VARIABLES
+	// ---------------		
+	SPRINT L_description_image 	~!_CHOFW~
+	SPRINT L_inventory_icon 	~!_IHOFW~
+	SET L_price	 				= 200
+	SET L_weight 				= 13
+	// Concatenates charge ability description with book text
+	SPRINT L_description_text 	@10	
+	SPRINT L_description_text	~%HOFW_book_text%~^~%L_description_text%~ // "See lpf/!_HistoryOfWaterdeep.tpp~"
+
+	// ITEM PROPERTIES (HEADER)
+	// ------------------------
+	SAY NAME1 				@7 									// Unidentified item name
+	SAY NAME2 				@8 									// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@9 									// Unidentified description	
 	SAY DESC 							~%L_description_text%~	// Identified description				
 	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
 	WRITE_ASCII	ITM_VERSION				~%version%~		
-	WRITE_ASCII	ITM_GROUND_ICON			~%L_ground_icon%~		
+	WRITE_ASCII	ITM_GROUND_ICON			~%ground_icon%~		
 	WRITE_ASCII	ITM_DESCRIPTION_IMAGE	~%L_description_image%~		
 	WRITE_ASCII	ITM_INVENTORY_ICON		~%L_inventory_icon%~
-	WRITE_LONG 	ITM_PRICE				price
+	WRITE_LONG 	ITM_PRICE				L_price
 	WRITE_LONG 	ITM_FLAGS				flags
-//	WRITE_LONG 	ITM_UNUSABLE_BY			unusable_by
-	WRITE_SHORT ITM_WEIGHT 				weight 	
+	WRITE_SHORT ITM_WEIGHT 				L_weight	
 	WRITE_SHORT ITM_LORE 				lore 
-	WRITE_SHORT ITM_TYPE				L_newtype // See "lpf/HistoryOfTheDrow.tpp"
-//	WRITE_SHORT ITM_ANIMATION			animation	
-//	WRITE_BYTE	ITM_MIN_STRENGTH 		min_strength
-//	WRITE_BYTE 	ITM_MIN_LEVEL	 		min_level
-//	WRITE_BYTE	ITM_MAX_IN_STACK	 	max_in_stack
-//	WRITE_BYTE	ITM_ENCHANTMENT	 		L_enchantment
-//	WRITE_BYTE	ITM_WEAPON_PROFICIENCY	weapon_proficiency
-//	WRITE_BYTE 	ITM_UNUSABLE_KIT1		unusable_kit1	
-//	WRITE_BYTE 	ITM_UNUSABLE_KIT2		unusable_kit2	
-//	WRITE_BYTE 	ITM_UNUSABLE_KIT3		unusable_kit3	
-//	WRITE_BYTE 	ITM_UNUSABLE_KIT4		unusable_kit4
+	WRITE_SHORT ITM_TYPE				typeEncyclopedia // See "lpf/HistoryOfTheDrow.tpp"
 BUT_ONLY // End patching: ~!_HOFTD.ITM~
 
 

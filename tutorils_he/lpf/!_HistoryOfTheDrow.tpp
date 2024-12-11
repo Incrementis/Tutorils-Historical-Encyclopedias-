@@ -1,31 +1,4 @@
 // Never Forget: Comments can "lie", but code not so much ;P
-// REGISTER CONVERSABLE ITEM
-// -------------------------
-LPF ADD_CONVERSABLE_ITEM_IN_2DA
-	INT_VAR
-		strref 		= ~%button%~ // See "setup-tutorils_he.tp2"
-	STR_VAR
-		itemName 	= "!_HOFTD"
-END
-// ITEMTYPE LEFT QUICKSLOT ONLY
-// ----------------------------
-LPF ADD_ITEMTYPE_IN_2DA
-	INT_VAR
-		inventorySlotType 	= 15
-	STR_VAR
-		soundGrab			= ~!_GAM_1A~
-		soundDrop			= ~!_GAM_1B~
-	RET
-		L_newtype 			= typeNumber // L_newtype is used in setup-tutorils_he.tp2
-END
-// OPTIONAL: REGISTER ITEMTYPE/-CATEGORY ENCYCL!_(Encyclopedia)
-// ------------------------------------------------------------
-LPF ADD_ITEMCATEGORY_IN_IDS
-INT_VAR
-	typeNumber 		= L_newtype 
-STR_VAR
-	categoryName	= ~ENCYCL!_~
-END
 // NEW ITEM HEADER (MACRO/LIB)
 // ---------------------------
 LPF SIMP_ADD_ITEM_HEADER END
@@ -110,7 +83,7 @@ LPF ADD_ITEM_EFFECT
 		header			= 1 	// Add effect to only x item abilities(0=every item ability)
 		probability1 	= 100	// x% chance of activating the effect
 	STR_VAR
-		resource 		= ~EFF_P03~
+		resource 		= ~EFF_P03~ // Soundfile
 END
 // VALUES TO ITEM HEADER EFFECT
 // ----------------------------
@@ -124,7 +97,7 @@ LPF ADD_ITEM_EFFECT
 		header			= 1 	// Add effect to only x item abilities(0=every item ability)
 		probability1 	= 100	// x% chance of activating the effect
 	STR_VAR
-		resource 		= ~EFF_E01~
+		resource 		= ~EFF_E01~	// Soundfile
 END
 // VALUES TO ITEM HEADER EFFECT
 // ----------------------------
@@ -138,7 +111,7 @@ LPF ADD_ITEM_EFFECT
 		header			= 1 	// Add effect to only x item abilities(0=every item ability)
 		probability1 	= 100	// x% chance of activating the effect
 	STR_VAR
-		resource 		= ~!_GAM_1A~
+		resource 		= ~!_GAM_1A~ // Soundfile
 END
 // VALUES TO ITEM HEADER EFFECT
 // ----------------------------

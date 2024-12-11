@@ -11,3 +11,12 @@ LAF CHANGE_EXTENSION
 		oldExtension	= ~ogg~
 		newExtension	= ~wav~
 END
+// --- HISTORY OF WATERDEEP
+LAF CHANGE_EXTENSION
+	INT_VAR
+		destructive = 1
+	STR_VAR
+		sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~
+		oldExtension	= ~ogg~
+		newExtension	= ~wav~
+END

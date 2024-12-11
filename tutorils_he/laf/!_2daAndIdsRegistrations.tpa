@@ -1,0 +1,36 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+// ITEMTYPE LEFT QUICKSLOT ONLY
+// ----------------------------
+LAF ADD_ITEMTYPE_IN_2DA
+	INT_VAR
+		inventorySlotType 	= 15
+	STR_VAR
+		soundGrab			= ~!_GAM_1A~
+		soundDrop			= ~!_GAM_1B~
+	RET
+		typeEncyclopedia 	= typeNumber // Encyclopedia newtype is also used in setup-tutorils_he.tp2
+END
+// OPTIONAL: REGISTER ITEMTYPE/-CATEGORY ENCYCL!_(Encyclopedia)
+// ------------------------------------------------------------
+LAF ADD_ITEMCATEGORY_IN_IDS
+INT_VAR
+	typeNumber 		= typeEncyclopedia 
+STR_VAR
+	categoryName	= ~ENCYCL!_~
+END
+// REGISTER CONVERSABLE ITEMS
+// --------------------------
+// --- THE:History of the Drow
+LAF ADD_CONVERSABLE_ITEM_IN_2DA
+	INT_VAR
+		strref 		= RESOLVE_STR_REF(@100)
+	STR_VAR
+		itemName 	= "!_HOFTD"
+END
+// --- THE:History of Waterdeep
+LAF ADD_CONVERSABLE_ITEM_IN_2DA
+	INT_VAR
+		strref 		= RESOLVE_STR_REF(@100)
+	STR_VAR
+		itemName 	= "!_HOFW"
+END
