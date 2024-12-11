@@ -92,6 +92,7 @@ Thanks for offering troubleshooting
 
 * Image: Reading sequence frames partially used from Beamdog's Enhanced Edition games from the sequences chapter
 
+
 ### "History of the Drow"
 * Image: <a href="https://commons.wikimedia.org/wiki/File:Falero_Luis_Ricardo_Lily_Fairy_1888.jpg">Luis Ricardo Falero</a>, Public domain, via Wikimedia Commons
 
@@ -100,6 +101,20 @@ Thanks for offering troubleshooting
 * Music: Temple of the Manes Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 3.0 License
 http://creativecommons.org/licenses/by/3.0/
+
+### "History of Waterdeep"
+* Image: [By Rembrandt - ZgHt6DZhk-6SVw — Google Arts & Culture, Public Domain](https://commons.wikimedia.org/w/index.php?curid=13411875)
+
+* Image: [Sabre duel of German students of about 1900, painting by Georg Mühlberg (1863-1925), Public Domain](https://commons.wikimedia.org/w/index.php?curid=940473)
+
+* Image: Unknown English Artist, underpainting of snake from Portrait of Elizabeth I, c. 1580-1590, oil on panel, National Portrait Gallery, England
+
+* Image: [By Johann Heinrich Füssli  (1741–1825), Public Domain](https://de.m.wikipedia.org/wiki/Datei:John_Henry_Fuseli_-_The_Nightmare.JPG)
+
+* Music: "Wind of the Rainforest" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
 
 # Copyright
 The "*Tutoril's Historical Encyclopedias*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
