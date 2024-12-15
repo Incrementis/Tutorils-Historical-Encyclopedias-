@@ -111,10 +111,10 @@ END// End of "OUTER_FOR"
 
 // CREATE READINGSEQUENCE
 // ----------------------
-// Creates a "THE:History of the Drow" 2da file for reading sequence(Default-folder: override)
+// Creates a "THE:History of the Waterdeep" 2da file for reading sequence(Default-folder: override)
 LAF CREATE_READINGSEQUENCE_2DA
 	STR_VAR
 		2daFilename		= "!_RESQ01"
-		bgImage 		= "!_RESQ01"		// See MOS-folder
-		strrefArray 	= ~HOFW_strrefs~ 	// Initialized in "!_concatHistoryOfTheDrow.tpa"
+		bgImage 		= "!_RESQ01"	// See MOS-folder
+		strrefArray 	= ~HOFW_strrefs~
 END

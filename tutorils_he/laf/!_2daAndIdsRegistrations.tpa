@@ -34,3 +34,10 @@ LAF ADD_CONVERSABLE_ITEM_IN_2DA
 	STR_VAR
 		itemName 	= "!_HOFW"
 END
+// --- THE:History of the North
+LAF ADD_CONVERSABLE_ITEM_IN_2DA
+	INT_VAR
+		strref 		= RESOLVE_STR_REF(@100)
+	STR_VAR
+		itemName 	= "!_HOFTN"
+END

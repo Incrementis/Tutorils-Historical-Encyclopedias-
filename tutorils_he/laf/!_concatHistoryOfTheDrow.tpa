@@ -107,6 +107,6 @@ END// End of "OUTER_FOR"
 LAF CREATE_READINGSEQUENCE_2DA
 	STR_VAR
 		2daFilename		= "!_RESQ00"
-		bgImage 		= "!_RESQ00"		// See MOS-folder
-		strrefArray 	= ~HOFTD_strrefs~ 	// Initialized in "!_concatHistoryOfTheDrow.tpa"
+		bgImage 		= "!_RESQ00"	// See MOS-folder
+		strrefArray 	= ~HOFTD_strrefs~
 END

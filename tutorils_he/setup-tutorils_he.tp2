@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.2.00~
+VERSION ~v0.3.00~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -35,8 +35,10 @@ LANGUAGE
 	~tutorils_he/English/!_setup.tra~
 	~tutorils_he/English/!_warnings.tra~
 	~tutorils_he/English/!_errors.tra~
-	~tutorils_he/English/!_HistoryOfTheDrow.tra~
-	~tutorils_he/English/!_HistoryOfWaterdeep.tra~
+	~tutorils_he/English/!_historyOfTheDrow.tra~
+	~tutorils_he/English/!_historyOfWaterdeep.tra~
+	~tutorils_he/English/!_historyOfTheNorth.tra~
+
 
 /*	
 LANGUAGE
@@ -55,12 +57,13 @@ LANGUAGE
 BEGIN @1 LABEL "!_-TutorilsHistoricalEncyclopedias-Main" DESIGNATED 1000
 // GLOBAL INCLUDES(Don't touch this!)
 // ----------------------------------	
-INCLUDE ~%MOD_FOLDER%/laf/errors/!_CheckIEgames.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/errors/!_checkIEgames.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_2daAndIdsRegistrations.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_oggToWav.tpa~
 INCLUDE ~%MOD_FOLDER%/lam/!_declareBookArrays.tpa~ // Must be before "!_concatHistoryOf<name>.tpa"
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheDrow.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfWaterdeep.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheNorth.tpa~
 
 
 // DIALOG FILES FOR READING SEQUENCES
@@ -68,6 +71,7 @@ INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfWaterdeep.tpa~
 // Compile d file to DLG and the tra file is needed to identifiy which tra file it should use?????????????????????
 COMPILE ~%MOD_FOLDER%/DLG/!_HOFTD.d~
 COMPILE ~%MOD_FOLDER%/DLG/!_HOFW.d~
+COMPILE ~%MOD_FOLDER%/DLG/!_HOFTN.d~
 
 
 
@@ -75,6 +79,7 @@ COMPILE ~%MOD_FOLDER%/DLG/!_HOFW.d~
 // -------------------
 CREATE ~ITM~ ~!_HOFTD~	// "THE:History of the Drow"
 CREATE ~ITM~ ~!_HOFW~	// "THE:History of Waterdeep"
+CREATE ~ITM~ ~!_HOFTN~	// "THE:History of the North"
 
 
 // BAM FILES FOR ALL ITEMS
@@ -89,6 +94,7 @@ COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
 COPY ~%MOD_FOLDER%/sound/inventory~ 			~override~
 COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~ 		~override~
 COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~ 	~override~
+COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/north~ 		~override~
 
 
 // MOS FILES FOR ALL ITEMS
@@ -138,7 +144,7 @@ OUTER_SPRINT ground_icon 		~!_GENCYC~
 COPY_EXISTING ~!_HOFTD.ITM~ override
 	// LOCAL INCLUDES(Content changeable)
 	// ----------------------------------
-	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_HistoryOfTheDrow.tpp~
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_historyOfTheDrow.tpp~
 
 	// LOCAL VARIABLES
 	// ---------------	
@@ -148,7 +154,7 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 	SET L_weight 				= 5
 	// Concatenates charge ability description with book text
 	SPRINT L_description_text 	@5	
-	SPRINT L_description_text	~%HOFTD_book_text%~^~%L_description_text%~ // "See lpf/!_HistoryOfTheDrow.tpp~"
+	SPRINT L_description_text	~%HOFTD_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfTheDrow.tpp~"
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
@@ -174,7 +180,7 @@ BUT_ONLY // End patching: ~!_HOFTD.ITM~
 COPY_EXISTING ~!_HOFW.ITM~ override
 	// LOCAL INCLUDES(Content changeable)
 	// ----------------------------------
-	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_HistoryOfWaterdeep.tpp~
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_historyOfWaterdeep.tpp~
 
 	// LOCAL VARIABLES
 	// ---------------		
@@ -184,7 +190,7 @@ COPY_EXISTING ~!_HOFW.ITM~ override
 	SET L_weight 				= 13
 	// Concatenates charge ability description with book text
 	SPRINT L_description_text 	@10	
-	SPRINT L_description_text	~%HOFW_book_text%~^~%L_description_text%~ // "See lpf/!_HistoryOfWaterdeep.tpp~"
+	SPRINT L_description_text	~%HOFW_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfWaterdeep.tpp~"
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
@@ -201,8 +207,44 @@ COPY_EXISTING ~!_HOFW.ITM~ override
 	WRITE_LONG 	ITM_FLAGS				flags
 	WRITE_SHORT ITM_WEIGHT 				L_weight	
 	WRITE_SHORT ITM_LORE 				lore 
-	WRITE_SHORT ITM_TYPE				typeEncyclopedia // See "lpf/HistoryOfTheDrow.tpp"
-BUT_ONLY // End patching: ~!_HOFTD.ITM~
+	WRITE_SHORT ITM_TYPE				typeEncyclopedia // See "laf/!_2daAndIdsRegistration.tpa"
+BUT_ONLY // End patching: ~!_HOFTW.ITM~
+
+
+// PATCHING ITEM FILE "THE:History of the North"
+// -------------------------------------------
+COPY_EXISTING ~!_HOFTN.ITM~ override
+	// LOCAL INCLUDES(Content changeable)
+	// ----------------------------------
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_historyOfTheNorth.tpp~
+
+	// LOCAL VARIABLES
+	// ---------------		
+	SPRINT L_description_image 	~!_CHOFTN~
+	SPRINT L_inventory_icon 	~!_IHOFTN~
+	SET L_price	 				= 300
+	SET L_weight 				= 21
+	// Concatenates charge ability description with book text
+	SPRINT L_description_text 	@15	
+	SPRINT L_description_text	~%HOFTN_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfTheNorth.tpa~"
+
+	// ITEM PROPERTIES (HEADER)
+	// ------------------------
+	SAY NAME1 				@12 								// Unidentified item name
+	SAY NAME2 				@13 								// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@14 								// Unidentified description	
+	SAY DESC 							~%L_description_text%~	// Identified description				
+	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
+	WRITE_ASCII	ITM_VERSION				~%version%~		
+	WRITE_ASCII	ITM_GROUND_ICON			~%ground_icon%~		
+	WRITE_ASCII	ITM_DESCRIPTION_IMAGE	~%L_description_image%~		
+	WRITE_ASCII	ITM_INVENTORY_ICON		~%L_inventory_icon%~
+	WRITE_LONG 	ITM_PRICE				L_price
+	WRITE_LONG 	ITM_FLAGS				flags
+	WRITE_SHORT ITM_WEIGHT 				L_weight	
+	WRITE_SHORT ITM_LORE 				lore 
+	WRITE_SHORT ITM_TYPE				typeEncyclopedia // See "laf/!_2daAndIdsRegistration.tpa"
+BUT_ONLY // End patching: ~!_HOFTW.ITM~
 
 
 // PATCHING STORE FILE "Feldepost's Inn"(Beregost)
@@ -210,11 +252,11 @@ BUT_ONLY // End patching: ~!_HOFTD.ITM~
 COPY_EXISTING ~INN3351.STO~ ~override~
 	// LOCAL INCLUDES(Content changeable)
 	// ----------------------------------
-	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_StoreAllItems.tpp~
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
 BUT_ONLY // End patching: ~INN3351.STO~
 
 
 // FOOTER INCLUDES
 // ---------------
-INCLUDE ~%MOD_FOLDER%/laf/warnings/!_CheckSOD.tpa~
-INCLUDE ~%MOD_FOLDER%/laf/warnings/!_CheckIEgames.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkSOD.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkIEgames.tpa~

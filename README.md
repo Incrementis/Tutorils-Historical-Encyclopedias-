@@ -62,6 +62,9 @@ Because of this, the mod has achieved in its first alpha state the following ach
 
 * "**Worth 1000 words!**"
 *  Hidden achievement unlocked - "**These Walls Contain the World's Knowledge**" -- make something that heavily focuses on lore.
+
+One of the conditions of the competition was not to use AI, which is why the goal of this mod is to develop and finish without the use of AI.
+
 ### TODO
 * TODO: Link to wiki
 * TODO: Effects of every encyclopedia
@@ -88,9 +91,9 @@ Thanks for offering troubleshooting
 
 ## Credits
 ### General
-* Image by <a href="https://unsplash.com/de/@heathergreengreen?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Heather Green</a> auf <a href="https://unsplash.com/de/fotos/ein-altes-stuck-papier-mit-abgerissenen-kanten-sJAhA7oAkeY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> used as paper texture
+* Image: by <a href="https://unsplash.com/de/@heathergreengreen?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Heather Green</a> on <a href="https://unsplash.com/de/fotos/ein-altes-stuck-papier-mit-abgerissenen-kanten-sJAhA7oAkeY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> used as paper texture
 
-* Image: Reading sequence frames partially used from Beamdog's Enhanced Edition games from the sequences chapter
+* Image: Reading sequence frames partially used from Beamdog's Enhanced Edition games from the chapter sequences
 
 
 ### "History of the Drow"
@@ -98,7 +101,7 @@ Thanks for offering troubleshooting
 
 * Image: Photo by <a href="https://unsplash.com/de/@souvenirpixels?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">James Wheeler</a> on <a href="https://unsplash.com/de/fotos/graues-holz-auf-grunen-ruinen-9zXMb-E8pI0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-* Music: Temple of the Manes Kevin MacLeod (incompetech.com)
+* Music: "Temple of the Manes" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 3.0 License
 http://creativecommons.org/licenses/by/3.0/
 
