@@ -25,6 +25,11 @@ They also share a unique ground icon with a custom highlight, showing that they 
 
 A total of 21 images were created that can be found as a description image depending on the number of books an encyclopedia covers. For example, "History of the Drow" has two. Depending on the number of images that a description image must use, these are correspondingly small.
 
+# How to use(TODO)
+* Headphones recommended
+* If reading and listening at the same time is wished this can be achieved by left-mouse click on the text area in "Reading Sequence"
+* Take a seat in Feldepost Inn, order your drink and then enjoy. This is not kind of a "fast food" mod, so take your time while consuming(it can be very long). 
+
 ## Supported Games
 * SoD (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
 * Not-Yet BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
