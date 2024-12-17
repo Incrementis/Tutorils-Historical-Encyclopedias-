@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.3.00~
+VERSION ~v0.4.00~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -38,6 +38,7 @@ LANGUAGE
 	~tutorils_he/English/!_historyOfTheDrow.tra~
 	~tutorils_he/English/!_historyOfWaterdeep.tra~
 	~tutorils_he/English/!_historyOfTheNorth.tra~
+	~tutorils_he/English/!_historyOfShadowdale.tra~
 
 
 /*	
@@ -64,6 +65,7 @@ INCLUDE ~%MOD_FOLDER%/lam/!_declareBookArrays.tpa~ // Must be before "!_concatHi
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheDrow.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfWaterdeep.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheNorth.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfShadowdale.tpa~
 
 
 // DIALOG FILES FOR READING SEQUENCES
@@ -72,7 +74,7 @@ INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheNorth.tpa~
 COMPILE ~%MOD_FOLDER%/DLG/!_HOFTD.d~
 COMPILE ~%MOD_FOLDER%/DLG/!_HOFW.d~
 COMPILE ~%MOD_FOLDER%/DLG/!_HOFTN.d~
-
+COMPILE ~%MOD_FOLDER%/DLG/!_HOFS.d~
 
 
 // CREATING ITEM FILES
@@ -80,6 +82,7 @@ COMPILE ~%MOD_FOLDER%/DLG/!_HOFTN.d~
 CREATE ~ITM~ ~!_HOFTD~	// "THE:History of the Drow"
 CREATE ~ITM~ ~!_HOFW~	// "THE:History of Waterdeep"
 CREATE ~ITM~ ~!_HOFTN~	// "THE:History of the North"
+CREATE ~ITM~ ~!_HOFS~	// "THE:History of Shadowdale"
 
 
 // BAM FILES FOR ALL ITEMS
@@ -95,6 +98,7 @@ COPY ~%MOD_FOLDER%/sound/inventory~ 			~override~
 COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~ 		~override~
 COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~ 	~override~
 COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/north~ 		~override~
+COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/shadowdale~ ~override~
 
 
 // MOS FILES FOR ALL ITEMS
@@ -244,7 +248,43 @@ COPY_EXISTING ~!_HOFTN.ITM~ override
 	WRITE_SHORT ITM_WEIGHT 				L_weight	
 	WRITE_SHORT ITM_LORE 				lore 
 	WRITE_SHORT ITM_TYPE				typeEncyclopedia // See "laf/!_2daAndIdsRegistration.tpa"
-BUT_ONLY // End patching: ~!_HOFTW.ITM~
+BUT_ONLY // End patching: ~!_HOFTN.ITM~
+
+
+// PATCHING ITEM FILE "THE:History of Shadowdale"
+// -------------------------------------------
+COPY_EXISTING ~!_HOFS.ITM~ override
+	// LOCAL INCLUDES(Content changeable)
+	// ----------------------------------
+	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_historyOfShadowdale.tpp~
+
+	// LOCAL VARIABLES
+	// ---------------		
+	SPRINT L_description_image 	~!_CHOFS~
+	SPRINT L_inventory_icon 	~!_IHOFS~
+	SET L_price	 				= 400
+	SET L_weight 				= 21
+	// Concatenates charge ability description with book text
+	SPRINT L_description_text 	@20
+	SPRINT L_description_text	~%HOFS_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfShadowdale.tpa~"
+
+	// ITEM PROPERTIES (HEADER)
+	// ------------------------
+	SAY NAME1 				@17 								// Unidentified item name
+	SAY NAME2 				@18 								// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@19 								// Unidentified description	
+	SAY DESC 							~%L_description_text%~	// Identified description				
+	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
+	WRITE_ASCII	ITM_VERSION				~%version%~		
+	WRITE_ASCII	ITM_GROUND_ICON			~%ground_icon%~		
+	WRITE_ASCII	ITM_DESCRIPTION_IMAGE	~%L_description_image%~		
+	WRITE_ASCII	ITM_INVENTORY_ICON		~%L_inventory_icon%~
+	WRITE_LONG 	ITM_PRICE				L_price
+	WRITE_LONG 	ITM_FLAGS				flags
+	WRITE_SHORT ITM_WEIGHT 				L_weight	
+	WRITE_SHORT ITM_LORE 				lore 
+	WRITE_SHORT ITM_TYPE				typeEncyclopedia // See "laf/!_2daAndIdsRegistration.tpa"
+BUT_ONLY // End patching: ~!_HOFTS.ITM~
 
 
 // PATCHING STORE FILE "Feldepost's Inn"(Beregost)

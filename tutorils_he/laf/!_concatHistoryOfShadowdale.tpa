@@ -3,40 +3,54 @@
 // INIT ARRAYS
 // -----------
 // Creates an array with book strefs(see dialog.tlk)
-ACTION_DEFINE_ARRAY books_history_of_waterdeep
+ACTION_DEFINE_ARRAY books_history_of_shadowdale
 BEGIN
 	~-1~ 
-	~13188~
-	~13189~
-	~13190~
-	~13192~
-	~13191~
-	~13193~
+	~13146~
+	~13147~
+	~13148~
+	~13149~
+	~13150~
+	~13151~
+	~13152~
+	~13153~
+	~13154~
+	~13155~
+	~13156~
+	~13157~
+	~13158~
 END
 // Creates an array with sound file names
-ACTION_DEFINE_ARRAY voces_history_of_the_waterdeep
+ACTION_DEFINE_ARRAY voces_history_of_the_shadowdale
 BEGIN
 	~!_NULL~
-	~!_HOFW00~
-	~!_HOFW01~
-	~!_HOFW02~
-	~!_HOFW03~
-	~!_HOFW04~
-	~!_HOFW05~
+	~!_HOFS00~
+	~!_HOFS01~
+	~!_HOFS02~
+	~!_HOFS03~
+	~!_HOFS04~
+	~!_HOFS05~
+	~!_HOFS06~
+	~!_HOFS07~
+	~!_HOFS08~
+	~!_HOFS09~
+	~!_HOFS10~
+	~!_HOFS11~
+	~!_HOFS12~
 END
 
 
 // MAIN LOOP
 // ---------
 // Concatenates Book texts and store string references
-OUTER_SPRINT HOFW_book_text ~~
-OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_waterdeep(~%indexVocesBooks%~); ++indexVocesBooks) BEGIN
+OUTER_SPRINT HOFS_book_text ~~
+OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_shadowdale(~%indexVocesBooks%~); ++indexVocesBooks) BEGIN
 	// FETCHES BOOK DATA
 	// -----------------
 	// Gets specific text strref from book
-	OUTER_SPRINT book $books_history_of_waterdeep(~%indexVocesBooks%~)
+	OUTER_SPRINT book $books_history_of_shadowdale(~%indexVocesBooks%~)
 	// Gets the specific vox sound file from the list
-	OUTER_SPRINT vox $voces_history_of_the_waterdeep(~%indexVocesBooks%~)
+	OUTER_SPRINT vox $voces_history_of_the_shadowdale(~%indexVocesBooks%~)
 	// Gets the text of the book from dialog.tlk
 	ACTION_GET_STRREF ~%book%~ book_text
 	
@@ -55,9 +69,9 @@ OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_waterdeep(~%in
 		END
 		// Stores string references for later insertion into the specific 2DA file
 		OUTER_SET 		~!_position~ 	= indexVocesBooks
-		OUTER_SET 		~!_maxSlots~ 	= HOFW_numOfStrrefs
+		OUTER_SET 		~!_maxSlots~ 	= HOFS_numOfStrrefs
 		OUTER_SET		~!_collected~	= 0
-		OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
+		OUTER_SPRINT 	~!_useArrayName~ ~HOFS_strrefs~
 		OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
 		LAM DYN_ARRAY_SET_VALUES
 
@@ -67,41 +81,41 @@ OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_waterdeep(~%in
 		ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~win32~) THEN
 		BEGIN
 			// Adjust line endings(WNL)
-			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%%WNL%~^~%WNL%%book_text%~
+			OUTER_SPRINT HOFS_book_text ~%HOFS_book_text%%WNL%~^~%WNL%%book_text%~
 		END
 		// MAC-OS
 		ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~osx~) THEN
 		BEGIN
 			// Adjust line endings(MNL)
-			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%%MNL%~^~%MNL%%book_text%~
+			OUTER_SPRINT HOFS_book_text ~%HOFS_book_text%%MNL%~^~%MNL%%book_text%~
 		END
 		// LINUX
 		ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~unix~) THEN
 		BEGIN
 			// Adjust line endings(LNL)
-			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%%LNL%~^~%LNL%%book_text%~
+			OUTER_SPRINT HOFS_book_text ~%HOFS_book_text%%LNL%~^~%LNL%%book_text%~
 		END
 	END ELSE
 	BEGIN
 		// The first strref in the 2DA column is for the title, which is not needed here and is therefore set to "-1".
 		OUTER_SET 		~!_position~ 	= indexVocesBooks
-		OUTER_SET 		~!_maxSlots~ 	= HOFW_numOfStrrefs
+		OUTER_SET 		~!_maxSlots~ 	= HOFS_numOfStrrefs
 		OUTER_SET		~!_collected~	= 0
-		OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
+		OUTER_SPRINT 	~!_useArrayName~ ~HOFS_strrefs~
 		OUTER_SPRINT 	~!_arrayValue~	 ~%book%~
 		LAM DYN_ARRAY_SET_VALUES
 	END
 
 	// ALL VALUES COLLECTED
 	// --------------------
-	ACTION_IF(indexVocesBooks = (HOFW_numOfStrrefs - 1)) THEN
+	ACTION_IF(indexVocesBooks = (HOFS_numOfStrrefs - 1)) THEN
 	BEGIN
 		// To be on the safe side, initilaizes all macros variables 
 		// and calls macros DYN_ARRAY_SET_VALUES
 		OUTER_SET 		~!_position~ 	=	indexVocesBooks
-		OUTER_SET 		~!_maxSlots~ 	=	HOFW_numOfStrrefs
+		OUTER_SET 		~!_maxSlots~ 	=	HOFS_numOfStrrefs
 		OUTER_SET		~!_collected~	=	1
-		OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
+		OUTER_SPRINT 	~!_useArrayName~ ~HOFS_strrefs~
 		OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
 		LAM DYN_ARRAY_SET_VALUES
 	END
@@ -111,10 +125,10 @@ END// End of "OUTER_FOR"
 
 // CREATE READINGSEQUENCE
 // ----------------------
-// Creates a "THE:History of the Waterdeep" 2da file for reading sequence(Default-folder: override)
+// Creates a "THE:History of the Shadowdale" 2da file for reading sequence(Default-folder: override)
 LAF CREATE_READINGSEQUENCE_2DA
 	STR_VAR
-		2daFilename		= "!_RESQ01"
-		bgImage 		= "!_RESQ01"	// See MOS-folder
-		strrefArray 	= ~HOFW_strrefs~
+		2daFilename		= "!_RESQ03"
+		bgImage 		= "!_RESQ03"	// See MOS-folder
+		strrefArray 	= ~HOFS_strrefs~
 END
