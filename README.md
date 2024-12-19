@@ -100,6 +100,8 @@ Thanks for offering troubleshooting
 
 * Image: Reading sequence frames partially used from Beamdog's Enhanced Edition games from the chapter sequences
 
+* Text: The voiced text are from the Infinity Engine game Baldur's Gate Enhanced Edition. This is noted here due to copyright issues and should be treated with respect to the owner of Beamdog.
+
 
 ### "History of the Drow"
 * Image: <a href="https://commons.wikimedia.org/wiki/File:Falero_Luis_Ricardo_Lily_Fairy_1888.jpg">Luis Ricardo Falero</a>, Public domain, via Wikimedia Commons

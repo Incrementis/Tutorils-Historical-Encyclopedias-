@@ -5,7 +5,7 @@
 // Creates an array with book strefs(see dialog.tlk)
 ACTION_DEFINE_ARRAY books_history_of_the_drow
 BEGIN
-	~-1~ 
+	~-1~
 	~13165~
 	~13166~
 END
