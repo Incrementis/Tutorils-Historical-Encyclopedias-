@@ -23,28 +23,28 @@ END
 // --- THE:History of the Drow
 LAF ADD_CONVERSABLE_ITEM_IN_2DA
 	INT_VAR
-		strref 		= RESOLVE_STR_REF(@100)
+		strref 		= RESOLVE_STR_REF(@22)
 	STR_VAR
 		itemName 	= "!_HOFTD"
 END
 // --- THE:History of Waterdeep
 LAF ADD_CONVERSABLE_ITEM_IN_2DA
 	INT_VAR
-		strref 		= RESOLVE_STR_REF(@100)
+		strref 		= RESOLVE_STR_REF(@22)
 	STR_VAR
 		itemName 	= "!_HOFW"
 END
 // --- THE:History of the North
 LAF ADD_CONVERSABLE_ITEM_IN_2DA
 	INT_VAR
-		strref 		= RESOLVE_STR_REF(@100)
+		strref 		= RESOLVE_STR_REF(@22)
 	STR_VAR
 		itemName 	= "!_HOFTN"
 END
 // --- THE:History of the Shadowdale
 LAF ADD_CONVERSABLE_ITEM_IN_2DA
 	INT_VAR
-		strref 		= RESOLVE_STR_REF(@100)
+		strref 		= RESOLVE_STR_REF(@22)
 	STR_VAR
 		itemName 	= "!_HOFS"
 END

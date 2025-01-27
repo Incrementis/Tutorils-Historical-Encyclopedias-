@@ -16,14 +16,14 @@ BEGIN
 END
 
 
-OUTER_SPRINT warning @2147483646
+OUTER_SPRINT warning @1073741822
 
 
 // Checks all game shortcuts
-OUTER_FOR (index = 0; VARIABLE_IS_SET $games_insecure_compatibility(~%index%~); ++index) BEGIN
+OUTER_FOR (gameIndex = 0; VARIABLE_IS_SET $games_insecure_compatibility(~%gameIndex%~); ++gameIndex) BEGIN
 
 	// Gets specific game shortcut
-	OUTER_TEXT_SPRINT game $games_insecure_compatibility(~%index%~)
+	OUTER_TEXT_SPRINT game $games_insecure_compatibility(~%gameIndex%~)
 
 	// Calls warning 
 	LAF WARN_EVALUATE_GAME_EXISTANCE 

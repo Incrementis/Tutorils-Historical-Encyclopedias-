@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.4.05~
+VERSION ~v0.4.08~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -135,7 +135,7 @@ OUTER_SET ITM_NUMBER_OF_ABILITIES	= 0x0068
 // GLOBAL VARIABLES (Changable)
 // ----------------------------
 // Gets the the stringref for the button which references to the button text.
-OUTER_SET button 				= RESOLVE_STR_REF(@100)	 
+OUTER_SET button 				= RESOLVE_STR_REF(@22)	 
 OUTER_SPRINT signature 			 ~ITM~
 OUTER_SPRINT version 			 ~V1~	
 OUTER_SET lore 					= 10

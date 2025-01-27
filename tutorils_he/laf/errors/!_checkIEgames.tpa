@@ -17,14 +17,14 @@ BEGIN
 END
 
 
-OUTER_SPRINT error @2147483647
+OUTER_SPRINT error @1073741823
 
 
 // Checks all game shortcuts
-OUTER_FOR (index = 0; VARIABLE_IS_SET $games_incompatible(~%index%~); ++index) BEGIN
+OUTER_FOR (gameIndex = 0; VARIABLE_IS_SET $games_incompatible(~%gameIndex%~); ++gameIndex) BEGIN
 
 	// Gets specific game shortcut
-	OUTER_TEXT_SPRINT game $games_incompatible(~%index%~)
+	OUTER_TEXT_SPRINT game $games_incompatible(~%gameIndex%~)
 
 	// Calls error 
 	LAF ERR_EVALUATE_GAME_EXISTANCE 

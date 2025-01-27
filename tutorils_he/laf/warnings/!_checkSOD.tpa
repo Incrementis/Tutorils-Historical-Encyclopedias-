@@ -9,14 +9,14 @@ BEGIN
 END
 
 
-OUTER_SPRINT warning @2147483644
+OUTER_SPRINT warning @1073741820
 
 
 // Checks all files
-OUTER_FOR (index = 0; VARIABLE_IS_SET $files(~%index%~); ++index) BEGIN
+OUTER_FOR (fileIndex = 0; VARIABLE_IS_SET $files(~%fileIndex%~); ++fileIndex) BEGIN
 
 	// Gets specific file
-	OUTER_TEXT_SPRINT file $files(~%index%~)
+	OUTER_TEXT_SPRINT file $files(~%fileIndex%~)
 
 	// Calls warning 
 	LAF WARN_EVALUATE_FILE_EXISTANCE 
