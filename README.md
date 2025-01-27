@@ -125,10 +125,24 @@ http://creativecommons.org/licenses/by/3.0/
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
+### "History of the North"
+* Image: [This Country of Ours, Part 1 by H.E. Marshall](https://archive.org/details/this_country_pt1_ks), Public Domain
+
+* Music: "Night Vigil" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+### "History of Shadowdale"
+* Image: By James Archer - [File:The Death of King Arthur by James Archer (1860).jpg](https://commons.wikimedia.org/wiki/File:The_Death_of_King_Arthur_by_James_Archer_(1860).jpg), Public Domain
+
+* Music: "That Zen Moment " Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
 
 # Copyright
 The "*Tutoril's Historical Encyclopedias*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
 
 Please note that I do not claim loremaster status and therefore the pronunciation of the texts in "*Tutoril's Historical Encyclopedias*" may be incorrect.
 
-"*Tutoril's Historical Encyclopedias*" as a whole is licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
+"*Tutoril's Historical Encyclopedias*" is partially licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
