@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.4.08~
+VERSION ~v0.4.15~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -22,6 +22,8 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/lib/dialogTlkFunctionalities.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/fileHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/%WEIDU_OS%/dynArrayFunctionalities.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/gameInfo.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/UIHandling.tph~
 END// End of "ALWAYS"
 
 
@@ -61,11 +63,13 @@ BEGIN @1 LABEL "!_-TutorilsHistoricalEncyclopedias-Main" DESIGNATED 1000
 INCLUDE ~%MOD_FOLDER%/laf/errors/!_checkIEgames.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_2daAndIdsRegistrations.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_oggToWav.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/!_retrieveGameData.tpa~
 INCLUDE ~%MOD_FOLDER%/lam/!_declareBookArrays.tpa~ // Must be before "!_concatHistoryOf<name>.tpa"
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheDrow.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfWaterdeep.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfTheNorth.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_concatHistoryOfShadowdale.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/!_readingSequenceUI.tpa~
 
 
 // DIALOG FILES FOR READING SEQUENCES
@@ -87,24 +91,40 @@ CREATE ~ITM~ ~!_HOFS~	// "THE:History of Shadowdale"
 
 // BAM FILES FOR ALL ITEMS
 // -----------------------
-COPY ~%MOD_FOLDER%/BAM/inventory~ 	~override~
-COPY ~%MOD_FOLDER%/BAM/description~ ~override~
-COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
+ACTION_IF(GAME_IS ~iwdee~) THEN
+BEGIN
+	COPY ~%MOD_FOLDER%/BAM/inventory~ 	~override~
+	COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
+END ELSE
+BEGIN
+	COPY ~%MOD_FOLDER%/BAM/inventory~ 	~override~
+	COPY ~%MOD_FOLDER%/BAM/description~ ~override~
+	COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
+END
 
 
 // WAV FILES FOR ALL ITEMS
 // -----------------------
-COPY ~%MOD_FOLDER%/sound/inventory~ 			~override~
-COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~ 		~override~
-COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~ 	~override~
-COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/north~ 		~override~
-COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/shadowdale~ ~override~
+ACTION_IF(GAME_IS ~iwdee~) THEN
+BEGIN
+	COPY ~%MOD_FOLDER%/sound/inventory~ 					~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/drow~ 		~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/waterdeep~ 	~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/north~ 		~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/shadowdale~ 	~override~
+END ELSE
+BEGIN
+	COPY ~%MOD_FOLDER%/sound/inventory~ 			~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~ 		~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~ 	~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/north~ 		~override~
+	COPY ~%MOD_FOLDER%/sound/%LANGUAGE%/shadowdale~ ~override~
+END
 
 
 // MOS FILES FOR ALL ITEMS
 // -----------------------
-COPY ~%MOD_FOLDER%/MOS~ ~override~
-
+COPY ~%MOD_FOLDER%/MOS/%IDENTIFIER%~ ~override~
 
 // ITEM CONSTANTS HEADER(Don't touch this!)
 // ----------------------------------------
@@ -287,13 +307,37 @@ COPY_EXISTING ~!_HOFS.ITM~ override
 BUT_ONLY // End patching: ~!_HOFTS.ITM~
 
 
-// PATCHING STORE FILE "Feldepost's Inn"(Beregost)
-// -----------------------------------------------
-COPY_EXISTING ~INN3351.STO~ ~override~
-	// LOCAL INCLUDES(Content changeable)
-	// ----------------------------------
-	PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
-BUT_ONLY // End patching: ~INN3351.STO~
+// TODO: Check if refactoring is needed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// ---Icewind Dale Enhanced Edition
+ACTION_IF GAME_IS ~iwdee~ THEN
+BEGIN
+	// 
+	// -----------------------------------------------
+	COPY_EXISTING ~EHPOMAB.STO~ ~override~
+		// 
+		// ----------------------------------
+		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
+	BUT_ONLY // End patching: ~??????~
+	// 
+	// -----------------------------------------------
+	COPY_EXISTING ~KUOSWALD.STO~ ~override~
+		// 
+		// ----------------------------------
+		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
+	BUT_ONLY // End patching: ~??????~
+END
+// ---Siege of Dragonspear and Baldur's Gate Enhanced Edition
+ACTION_IF (FILE_EXISTS ~sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~) OR (GAME_IS ~bgee~)THEN
+BEGIN
+	// PATCHING STORE FILE "Feldepost's Inn"(Beregost)
+	// -----------------------------------------------
+	COPY_EXISTING ~INN3351.STO~ ~override~
+		// LOCAL INCLUDES(Content changeable)
+		// ----------------------------------
+		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
+	BUT_ONLY // End patching: ~INN3351.STO~
+END
+
 
 
 // FOOTER INCLUDES

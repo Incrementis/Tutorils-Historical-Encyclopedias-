@@ -34,7 +34,7 @@ A total of 21 images were created that can be found as a description image depen
 * SoD (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
 * Not-Yet BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
 * Not-Yet BG2:EE (Baldur's Gate2:Enhanced Edition) tested version is 2.6.6.0
-* Not-Yet IWD:EE (Icewind Dale:Enhanced Edition) tested version is 2.6.6.0
+* IWD:EE (Icewind Dale:Enhanced Edition) tested version is 2.6.6.0
 
 ## Operating Systems
 * Tested on Windows 11 and is likely to work on other operating systems
@@ -47,7 +47,7 @@ A total of 21 images were created that can be found as a description image depen
 1. Download the [latest version](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/releases)
 2. Unzip the file
 3. Navigate into the unzipped folder until you see the "*tutorils_he*" folder.
-4. Copy the folder "*tutorils_he*" and the file "*Setup-tutorils_he.exe*" and paste them into your Baldur's Gate Enhanced Edition(SoD) game folder.
+4. Copy the folder "*tutorils_he*" and the file "*Setup-tutorils_he.exe*" and paste them into your Baldur's Gate Enhanced Edition(SoD) or Icewind Dale Enhanced Edition game folder.
 5. Start "*Setup-tutorils_he.exe*" and select the installation language.
 
 ## Troubleshooting
@@ -57,6 +57,9 @@ Here is a solution:
 * Before "Tutoril's Historical Encyclopedias" is installed(If it is already installed, uninstall it before installing SOD by launching "*Setup-tutorils_he.exe*".):
 	1. SOD needs to be installed as BG:EE DLC 
 	2. and after that [DLCmerger](https://github.com/Argent77/A7-DlcMerger/releases) needs to be installed.
+
+### Compatibility
+* Likely incompatible with UI mods that change chapter sequences in the UI.MENU file, or UI mods that fundamentally change the user interface of IE games.
 
 ## More Information(TODO)
 ### Competition
@@ -93,6 +96,7 @@ Thanks for offering code
 
 Thanks for offering troubleshooting
 * Dark0Dave for his help in [fixing this Git issue](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/issues/19#issuecomment-2521566664)
+* szef [What approach is recommended when editing UI.MENU regarding the chapter heading?](https://www.gibberlings3.net/forums/topic/39176-what-approach-is-recommended-when-editing-uimenu-regarding-the-chapter-heading/#comment-346385)
 
 ## Credits
 ### General

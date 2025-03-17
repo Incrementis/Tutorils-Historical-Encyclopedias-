@@ -1,0 +1,114 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+
+ACTION_IF (GAME_IS ~iwdee~) THEN 
+BEGIN
+	// CREATE READING SEQUENCE
+	// ----------------------
+	// --- THE:History of the Drow
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ00"
+			bgImage 		= "!_RESQ00"			// See MOS-folder
+			strrefArray 	= ~HOFTD_strrefsIWDEE~	// See file !_concatHistoryOfTheDrow.tpa
+	END
+	// --- THE:History of Waterdeep
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ01"
+			bgImage 		= "!_RESQ01"			// See MOS-folder
+			strrefArray 	= ~HOFW_strrefsIWDEE~	// See file !_concatHistoryOfWaterdeep.tpa
+	END
+	// --- THE:History of the North
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ02"
+			bgImage 		= "!_RESQ02"			// See MOS-folder
+			strrefArray 	= ~HOFTN_strrefsIWDEE~	// See file !_concatHistoryOfTheNorth.tpa
+	END
+	// --- THE:History of the Shadowdale
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ03"
+			bgImage 		= "!_RESQ03"			// See MOS-folder
+			strrefArray 	= ~HOFS_strrefsIWDEE~	// See file !_concatHistoryOfShadowdale.tpa
+	END
+
+	// SETTING TEXT-POSITION AND TITLE IN READING SEQUENCE
+	// ---------------------------------------------------
+	// --- THE:History of the Drow
+	ACTION_DEFINE_ARRAY HOFTD_title_and_textposition
+	BEGIN
+		~THE:History-of-the-Drow  %HOFTD_strrefIWDEE% 85 484 853 198~
+	END
+	// Manipulates UI.MENU
+	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
+	STR_VAR
+		arrayName = ~HOFTD_title_and_textposition~
+	END
+
+	// --- THE:History of Waterdeep
+	ACTION_DEFINE_ARRAY HOFW_title_and_textposition
+	BEGIN
+		~THE:History-of-Waterdeep  %HOFW_strrefIWDEE% 85 484 853 198~
+	END
+	// Manipulates UI.MENU
+	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
+	STR_VAR
+		arrayName = ~HOFW_title_and_textposition~
+	END	
+
+	// --- THE:History of the North
+	ACTION_DEFINE_ARRAY HOFTN_title_and_textposition
+	BEGIN
+		~THE:History-of-the-North  %HOFTN_strrefIWDEE% 85 484 853 198~
+	END
+	// Manipulates UI.MENU
+	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
+	STR_VAR
+		arrayName = ~HOFTN_title_and_textposition~
+	END	
+
+	// --- THE:History of the Shadowdale
+	ACTION_DEFINE_ARRAY HOFS_title_and_textposition
+	BEGIN
+		~THE:History-of-Shadowdale  %HOFS_strrefIWDEE% 85 484 853 198~
+	END
+	// Manipulates UI.MENU
+	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
+	STR_VAR
+		arrayName = ~HOFS_title_and_textposition~
+	END	
+END ELSE
+BEGIN
+	// CREATE READINGSEQUENCE
+	// ----------------------
+	// --- THE:History of the Drow
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ00"
+			bgImage 		= "!_RESQ00"		// See MOS-folder
+			strrefArray 	= ~HOFTD_strrefs~	// See file !_concatHistoryOfTheDrow.tpa
+	END
+	// --- THE:History of Waterdeep
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ01"
+			bgImage 		= "!_RESQ01"		// See MOS-folder
+			strrefArray 	= ~HOFW_strrefs~	// See file !_concatHistoryOfWaterdeep.tpa
+	END
+	// --- THE:History of the North
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ02"
+			bgImage 		= "!_RESQ02"		// See MOS-folder
+			strrefArray 	= ~HOFTN_strrefs~ 	// See file !_concatHistoryOfTheNorth.tpa
+	END
+	// --- THE:History of Shadowdale
+	LAF CREATE_READINGSEQUENCE_2DA
+		STR_VAR
+			2daFilename		= "!_RESQ03"
+			bgImage 		= "!_RESQ03"	// See MOS-folder
+			strrefArray 	= ~HOFS_strrefs~// See file !_concatHistoryOfShadowdale.tpa
+	END
+
+END// END of "ELSE"

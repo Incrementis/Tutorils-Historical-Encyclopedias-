@@ -1,4 +1,5 @@
 // Never Forget: Comments can "lie", but code not so much ;P
+
 // ITEMTYPE LEFT QUICKSLOT ONLY
 // ----------------------------
 LAF ADD_ITEMTYPE_IN_2DA
@@ -41,7 +42,7 @@ LAF ADD_CONVERSABLE_ITEM_IN_2DA
 	STR_VAR
 		itemName 	= "!_HOFTN"
 END
-// --- THE:History of the Shadowdale
+// --- THE:History of Shadowdale
 LAF ADD_CONVERSABLE_ITEM_IN_2DA
 	INT_VAR
 		strref 		= RESOLVE_STR_REF(@22)

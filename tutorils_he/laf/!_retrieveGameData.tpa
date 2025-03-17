@@ -1,0 +1,15 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+
+// Gets a game ID, for example for dynamic file paths
+// --------------------------------------------------
+LAF GET_GAME_IDENTIFIER
+	RET
+		IDENTIFIER = identifier
+END
+
+// Gets OS newline (WNL or LNL)
+// ----------------------------
+LAF RETRIEVE_NEWLINE 
+	RET
+		NL = newline
+END

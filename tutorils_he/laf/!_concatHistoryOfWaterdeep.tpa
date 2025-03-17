@@ -25,96 +25,123 @@ BEGIN
 	~!_HOFW05~
 END
 
-
-// MAIN LOOP
-// ---------
-// Concatenates Book texts and store string references
-OUTER_SPRINT HOFW_book_text ~~
-OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_waterdeep(~%indexVocesBooks%~); ++indexVocesBooks) BEGIN
-	// FETCHES BOOK DATA
-	// -----------------
-	// Gets specific text strref from book
-	OUTER_SPRINT book $books_history_of_waterdeep(~%indexVocesBooks%~)
-	// Gets the specific vox sound file from the list
-	OUTER_SPRINT vox $voces_history_of_the_waterdeep(~%indexVocesBooks%~)
-	// Gets the text of the book from dialog.tlk
-	ACTION_GET_STRREF ~%book%~ book_text
-	
-	// Only valid values ​​are written to dialog.tlk
-	ACTION_IF NOT(~%vox%~ STRING_EQUAL ~!_NULL~) THEN
+ACTION_IF (GAME_IS ~iwdee~) THEN 
+BEGIN
+	// MAIN LOOP
+	// ---------
+	// Concatenates Book texts and store string references. 
+	// The first value in the book array is -1 and is therefore skipped.
+	OUTER_SPRINT HOFW_book_text ~~
+	OUTER_FOR (indexVocesBooks = 1; VARIABLE_IS_SET $books_history_of_waterdeep(~%indexVocesBooks%~); ++indexVocesBooks)
 	BEGIN
-		// COLLECTS NEW VALUES
-		// -------------------
-		// Gets new strref and writes the specifci book text and sound into the specific strref position in dialog.tlk
-		LAF RESOLVE_STR_REF_WITH_STRINGS
-			STR_VAR
-				text 	= ~%book_text%~
-				sound	= ~%vox%~
-			RET
-				stringref = strRef
-		END
-		// Stores string references for later insertion into the specific 2DA file
-		OUTER_SET 		~!_position~ 	= indexVocesBooks
-		OUTER_SET 		~!_maxSlots~ 	= HOFW_numOfStrrefs
-		OUTER_SET		~!_collected~	= 0
-		OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
-		OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
-		LAM DYN_ARRAY_SET_VALUES
-
-		// CONCATENATES TEXT FOR THE ENCYCLOPEDIA
-		// --------------------------------------
-		// WINDOWS(Works in 64-bit version and possibly 32-bit version too)
-		ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~win32~) THEN
+		OUTER_SET strrefBookIWDEE = $books_history_of_waterdeep(~%indexVocesBooks%~)
+		ACTION_GET_STRREF ~%strrefBookIWDEE%~ textBookIWDEE
+		// Prevents line breaks at the beginning of the book text
+		ACTION_IF (indexVocesBooks == 1) THEN
 		BEGIN
-			// Adjust line endings(WNL)
-			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%%WNL%~^~%WNL%%book_text%~
-		END
-		// MAC-OS
-		ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~osx~) THEN
+			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%~^~%textBookIWDEE%~
+		END ELSE
 		BEGIN
-			// Adjust line endings(MNL)
-			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%%MNL%~^~%MNL%%book_text%~
+			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%~^~%NL%%NL%%NL%%NL%~^~%textBookIWDEE%~
 		END
-		// LINUX
-		ACTION_IF (~%WEIDU_OS%~ STRING_EQUAL ~unix~) THEN
-		BEGIN
-			// Adjust line endings(LNL)
-			OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%%LNL%~^~%LNL%%book_text%~
-		END
-	END ELSE
-	BEGIN
-		// The first strref in the 2DA column is for the title, which is not needed here and is therefore set to "-1".
-		OUTER_SET 		~!_position~ 	= indexVocesBooks
-		OUTER_SET 		~!_maxSlots~ 	= HOFW_numOfStrrefs
-		OUTER_SET		~!_collected~	= 0
-		OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
-		OUTER_SPRINT 	~!_arrayValue~	 ~%book%~
-		LAM DYN_ARRAY_SET_VALUES
+	END
+	// Writes the encyclopedia text in dialog.tlk and gets a strref from it
+	LAF RESOLVE_STR_REF_WITH_STRINGS
+		STR_VAR
+			text 	= ~%HOFW_book_text%~
+			sound	= ~!_HOFW~
+		RET
+			HOFW_strrefIWDEE = strRef
 	END
 
-	// ALL VALUES COLLECTED
-	// --------------------
-	ACTION_IF(indexVocesBooks = (HOFW_numOfStrrefs - 1)) THEN
+	// This is required to create a 2da read sequence
+	ACTION_DEFINE_ARRAY HOFW_strrefsIWDEE
 	BEGIN
-		// To be on the safe side, initilaizes all macros variables 
-		// and calls macros DYN_ARRAY_SET_VALUES
-		OUTER_SET 		~!_position~ 	=	indexVocesBooks
-		OUTER_SET 		~!_maxSlots~ 	=	HOFW_numOfStrrefs
-		OUTER_SET		~!_collected~	=	1
-		OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
-		OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
-		LAM DYN_ARRAY_SET_VALUES
+		~-1~
+		~%HOFW_strrefIWDEE%~
 	END
-	
-END// End of "OUTER_FOR"
+END ELSE
+BEGIN
+	// MAIN LOOP
+	// ---------
+	// Concatenates Book texts and store string references
+	OUTER_SPRINT HOFW_book_text ~~
+	OUTER_FOR (indexVocesBooks = 0; VARIABLE_IS_SET $books_history_of_waterdeep(~%indexVocesBooks%~); ++indexVocesBooks) BEGIN
+		// FETCHES BOOK DATA
+		// -----------------
+		// Gets specific text strref from book
+		OUTER_SPRINT book $books_history_of_waterdeep(~%indexVocesBooks%~)
+		// Gets the specific vox sound file from the list
+		OUTER_SPRINT vox $voces_history_of_the_waterdeep(~%indexVocesBooks%~)
+		// Gets the text of the book from dialog.tlk
+		ACTION_GET_STRREF ~%book%~ book_text
+		
+		// Only valid values ​​are written to dialog.tlk
+		ACTION_IF NOT(~%vox%~ STRING_EQUAL ~!_NULL~) THEN
+		BEGIN
+			// COLLECTS NEW VALUES
+			// -------------------
+			ACTION_IF(indexVocesBooks < (HOFTN_numOfStrrefs - 1))
+			BEGIN
+				// Gets new strref and writes the specifci book text and sound into the specific strref position in dialog.tlk
+				LAF RESOLVE_STR_REF_WITH_STRINGS
+					STR_VAR
+						text 	= ~%book_text%%NL%%NL%%NL%%NL%___________~
+						sound	= ~%vox%~
+					RET
+						stringref = strRef
+				END
+			END
+			// Stores string references for later insertion into the specific 2DA file
+			OUTER_SET 		~!_position~ 	= indexVocesBooks
+			OUTER_SET 		~!_maxSlots~ 	= HOFW_numOfStrrefs
+			OUTER_SET		~!_collected~	= 0
+			OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
+			OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
+			LAM DYN_ARRAY_SET_VALUES
 
+			// CONCATENATES TEXT FOR THE ENCYCLOPEDIA
+			// --------------------------------------
+			ACTION_IF (indexVocesBooks == 1) THEN
+			BEGIN
+				OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%~^~%book_text%~
+			END ELSE
+			BEGIN
+				OUTER_SPRINT HOFW_book_text ~%HOFW_book_text%~^~%NL%%NL%%NL%%NL%~^~%book_text%~
+			END
+		END ELSE
+		BEGIN
+			// The first strref in the 2DA column is for the title, which is not needed here and is therefore set to "-1".
+			OUTER_SET 		~!_position~ 	= indexVocesBooks
+			OUTER_SET 		~!_maxSlots~ 	= HOFW_numOfStrrefs
+			OUTER_SET		~!_collected~	= 0
+			OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
+			OUTER_SPRINT 	~!_arrayValue~	 ~%book%~
+			LAM DYN_ARRAY_SET_VALUES
+		END
 
-// CREATE READINGSEQUENCE
-// ----------------------
-// Creates a "THE:History of the Waterdeep" 2da file for reading sequence(Default-folder: override)
-LAF CREATE_READINGSEQUENCE_2DA
-	STR_VAR
-		2daFilename		= "!_RESQ01"
-		bgImage 		= "!_RESQ01"	// See MOS-folder
-		strrefArray 	= ~HOFW_strrefs~
-END
+		// ALL VALUES COLLECTED
+		// --------------------
+		ACTION_IF(indexVocesBooks = (HOFW_numOfStrrefs - 1)) THEN
+		BEGIN
+			// Gets new strref and writes the specifci book text and sound into the specific strref position in dialog.tlk
+			LAF RESOLVE_STR_REF_WITH_STRINGS
+				STR_VAR
+					text 	= ~%book_text%~
+					sound	= ~%vox%~
+				RET
+					stringref = strRef
+			END
+
+			// To be on the safe side, initilaizes all macros variables 
+			// and calls macros DYN_ARRAY_SET_VALUES
+			OUTER_SET 		~!_position~ 	=	indexVocesBooks
+			OUTER_SET 		~!_maxSlots~ 	=	HOFW_numOfStrrefs
+			OUTER_SET		~!_collected~	=	1
+			OUTER_SPRINT 	~!_useArrayName~ ~HOFW_strrefs~
+			OUTER_SPRINT 	~!_arrayValue~	 ~%stringref%~
+			LAM DYN_ARRAY_SET_VALUES
+		END
+		
+	END// End of "OUTER_FOR"
+END// End of "ELSE"

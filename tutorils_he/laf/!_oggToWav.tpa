@@ -2,39 +2,80 @@
 
 // Deletes the files with the extension OGG while the new files with WAV extensions are retained.
 // ----------------------------------------------------------------------------------------------
-// --- HISTORY OF THE DROW
-LAF CHANGE_EXTENSION
-	INT_VAR
-		destructive = 1
-	STR_VAR
-		sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~
-		oldExtension	= ~ogg~
-		newExtension	= ~wav~
-END
-// --- HISTORY OF WATERDEEP
-LAF CHANGE_EXTENSION
-	INT_VAR
-		destructive = 1
-	STR_VAR
-		sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~
-		oldExtension	= ~ogg~
-		newExtension	= ~wav~
-END
-// --- HISTORY OF THE NORTH
-LAF CHANGE_EXTENSION
-	INT_VAR
-		destructive = 1
-	STR_VAR
-		sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/north~
-		oldExtension	= ~ogg~
-		newExtension	= ~wav~
-END
-// --- HISTORY OF SHADOWDALE
-LAF CHANGE_EXTENSION
-	INT_VAR
-		destructive = 1
-	STR_VAR
-		sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/shadowdale~
-		oldExtension	= ~ogg~
-		newExtension	= ~wav~
+ACTION_IF (GAME_IS ~iwdee~) THEN
+BEGIN
+	// --- HISTORY OF THE DROW
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/drow~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
+	// --- HISTORY OF WATERDEEP
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/waterdeep~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
+	// --- HISTORY OF THE NORTH
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/north~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
+	// --- HISTORY OF SHADOWDALE
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/iwdee/shadowdale~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
+END ELSE
+BEGIN
+	// --- HISTORY OF THE DROW
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/drow~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
+	// --- HISTORY OF WATERDEEP
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/waterdeep~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
+	// --- HISTORY OF THE NORTH
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/north~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
+	// --- HISTORY OF SHADOWDALE
+	LAF CHANGE_EXTENSION
+		INT_VAR
+			destructive = 1
+		STR_VAR
+			sourceDir 		= ~%MOD_FOLDER%/sound/%LANGUAGE%/shadowdale~
+			oldExtension	= ~ogg~
+			newExtension	= ~wav~
+	END
 END
