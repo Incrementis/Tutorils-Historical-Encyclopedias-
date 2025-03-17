@@ -96,7 +96,7 @@ Thanks for offering code
 
 Thanks for offering troubleshooting
 * Dark0Dave for his help in [fixing this Git issue](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/issues/19#issuecomment-2521566664)
-* szef [What approach is recommended when editing UI.MENU regarding the chapter heading?](https://www.gibberlings3.net/forums/topic/39176-what-approach-is-recommended-when-editing-uimenu-regarding-the-chapter-heading/#comment-346385)
+* szef for his help in [What approach is recommended when editing UI.MENU regarding the chapter heading?](https://www.gibberlings3.net/forums/topic/39176-what-approach-is-recommended-when-editing-uimenu-regarding-the-chapter-heading/#comment-346385)
 
 ## Credits
 ### General

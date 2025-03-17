@@ -38,7 +38,7 @@ BEGIN
 	// --- THE:History of the Drow
 	ACTION_DEFINE_ARRAY HOFTD_title_and_textposition
 	BEGIN
-		~THE:History-of-the-Drow  %HOFTD_strrefIWDEE% 85 484 853 198~
+		~THE:History-of-the-Drow  %HOFTD_strrefIWDEE% 535 184 365 456~
 	END
 	// Manipulates UI.MENU
 	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
@@ -49,7 +49,7 @@ BEGIN
 	// --- THE:History of Waterdeep
 	ACTION_DEFINE_ARRAY HOFW_title_and_textposition
 	BEGIN
-		~THE:History-of-Waterdeep  %HOFW_strrefIWDEE% 85 484 853 198~
+		~THE:History-of-Waterdeep  %HOFW_strrefIWDEE% 535 184 365 456~
 	END
 	// Manipulates UI.MENU
 	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
@@ -60,7 +60,7 @@ BEGIN
 	// --- THE:History of the North
 	ACTION_DEFINE_ARRAY HOFTN_title_and_textposition
 	BEGIN
-		~THE:History-of-the-North  %HOFTN_strrefIWDEE% 85 484 853 198~
+		~THE:History-of-the-North  %HOFTN_strrefIWDEE% 535 184 365 456~
 	END
 	// Manipulates UI.MENU
 	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
@@ -71,7 +71,7 @@ BEGIN
 	// --- THE:History of the Shadowdale
 	ACTION_DEFINE_ARRAY HOFS_title_and_textposition
 	BEGIN
-		~THE:History-of-Shadowdale  %HOFS_strrefIWDEE% 85 484 853 198~
+		~THE:History-of-Shadowdale  %HOFS_strrefIWDEE% 535 184 365 456~
 	END
 	// Manipulates UI.MENU
 	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
