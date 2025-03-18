@@ -32,8 +32,8 @@ A total of 21 images were created that can be found as a description image depen
 
 ## Supported Games
 * SoD (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
-* Not-Yet BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
-* Not-Yet BG2:EE (Baldur's Gate2:Enhanced Edition) tested version is 2.6.6.0
+* BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
+* BG2:EE (Baldur's Gate2:Enhanced Edition) tested version is 2.6.6.0
 * IWD:EE (Icewind Dale:Enhanced Edition) tested version is 2.6.6.0
 
 ## Operating Systems
