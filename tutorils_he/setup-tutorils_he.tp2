@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.5.0~
+VERSION ~v0.7.0~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -333,6 +333,17 @@ BEGIN
 	// -----------------------------------------------
 	COPY_EXISTING ~INN3351.STO~ ~override~
 		// LOCAL INCLUDES(Content changeable)
+		// ----------------------------------
+		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
+	BUT_ONLY // End patching: ~INN3351.STO~
+END
+// ---Baldur's Gate 2 Enhanced Edition
+ACTION_IF (GAME_IS ~bg2ee~)THEN
+BEGIN
+	// 
+	// -----------------------------------------------
+	COPY_EXISTING ~SHOP08.STO~ ~override~
+		// 
 		// ----------------------------------
 		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
 	BUT_ONLY // End patching: ~INN3351.STO~
