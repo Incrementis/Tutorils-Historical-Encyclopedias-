@@ -13,7 +13,7 @@
 // ------------------------
 @14=~Judging by the arcane symbols printed on its cover, it is clear that this book is imbued with magical properties of one sort or another. Until you attempt to either read or identify it, however, its precise nature will remain unknown to you.
 
-Weight: 5~
+Weight: 11~
 
 // ---------------------------------
 // Identified description(Partially)
@@ -30,7 +30,7 @@ Charge abilities:
  
 The Clairvoyance spell empowers the wizard to see in <PRO_HISHER> mind the geographical features and buildings of the region <PRO_HESHE> is currently exploring. It extends to a great range, but cannot reveal creatures or their movements. This version of the spell works both indoors and underground.
  
-Weight: 21~
+Weight: 11~
 
 @16=~The ice blue color that characterizes the cover, among other things, is clearly imbued with magic. When touched, the color transforms into a feeling of the cold of winter, which can be associated with the cold north that this book represents. On a subtle level, the book even resonates with the stormy violence of nature without being hurtful or unpleasant. The book aims to share the past of the harsh north and be an open but not rude host. If focused on this feeling while holding the book, it's like beeing part of the area. The impression of being part of the whole land is subtle at first, but grows stronger moment by moment until nothing is unknown anymore. 
 

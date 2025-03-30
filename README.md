@@ -1,9 +1,11 @@
 # Tutorils-Historical-Encyclopedias-
 ## NOTE 
-This is a work in progress and an alpha release. This means that most things are not implemented and the mod is subject to heavy changes. Use this mod with caution!!
+This is a beta version and still a work in progress. This means most things are already implemented and the mod is subject to change. Use this mod with caution!
 
+## TODO
+Link to a YouTube video after full release.
 
-## Idea
+## Summary
 This mod is fanfiction!
 It contains encyclopedias of in-game history book series to eliminate searching for the history book parts.
 The books are:
@@ -12,29 +14,35 @@ The books are:
 * History of the North(10 Books)
 * History of Waterdeep(6 Books)
 
-The items can be bought in Feldepost's Inn(Beregost).
+The items can be bought in:
+* Feldepost's Inn(Beregost)
+* Galoomp the Bookkeeper in Waukeen's Promenade(Athkatla)
+* Gerth's Equipment Shop(Kuldahar)
 
-In addition, the encyclopedias have a “Reading-Sequence”(like the Dream- or Chapter-Sequence). This can be activated within the description window using the “READ” button.
-The button first activates a dialog with a relatively short description and then the “Reading-Sequence”.
-Each sequence is accompanied by music and voice. It should also be noted that each “Reading-Sequence” has its own background image within the sequence.
+In addition, the encyclopedias have a "**Reading-Sequence**"(like the Dream- or Chapter-Sequence). This can be activated within the description window using the "**READ**" button.
+The button first activates a dialog with a relatively short description and then the "**Reading-Sequence**".
+Each sequence is accompanied by music and voice. It should also be noted that each "**Reading-Sequence**" has its own background image within the sequence.
 
-Furthermore, the encyclopedias have a custom drag-and-drop sound and the items can only be equipped in the left quickslot due to their size and weight.
+Furthermore, the encyclopedias have a **custom drag-and-drop sound** and the items can **only** be equipped in the **left quickslot** due to their size and weight.
+Each encyclopedia has its own specific magical effects that recharge after resting.
 
-Each encyclopedia has a unique icon image in its inventory.
-They also share a unique ground icon with a custom highlight, showing that they are limited and magical.
+Each encyclopedia has a **unique icon image** in its inventory.
+They also share a **unique ground icon** with a custom highlight, showing that they are limited and magical.
 
-A total of 21 images were created that can be found as a description image depending on the number of books an encyclopedia covers. For example, "History of the Drow" has two. Depending on the number of images that a description image must use, these are correspondingly small.
+A total of **21 images** were created that can be found as a description image depending on the number of books an encyclopedia covers. For example, "_History of the Drow_" has two. Depending on the number of images that a description image must use, these are correspondingly small.
 
-# How to use(TODO)
+EVery encyclopedia has it's own specific magical effects
+
+# How to use
 * Headphones recommended
-* If reading and listening at the same time is wished this can be achieved by left-mouse click on the text area in "Reading Sequence"
-* Take a seat in Feldepost Inn, order your drink and then enjoy. This is not kind of a "fast food" mod, so take your time while consuming(it can be very long). 
+* If **reading and listening at the same time** is wished this can be achieved **by left-mouse click on the text area** in "_Reading Sequence_"
+* This is not kind of a "_fast food_" mod, so take your time while consuming(it can be very long).
 
 ## Supported Games
-* SoD (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
-* BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
-* BG2:EE (Baldur's Gate2:Enhanced Edition) tested version is 2.6.6.0
-* IWD:EE (Icewind Dale:Enhanced Edition) tested version is 2.6.6.0
+* SoD (Baldur's Gate Enhanced Edition: Siege of Dragonspear) tested version is 2.6.6.0
+* BG:EE (Baldur's Gate Enhanced Edition) tested version is 2.6.6.0
+* BG2:EE (Baldur's Gate2 Enhanced Edition) tested version is 2.6.6.0
+* IWD:EE (Icewind Dale Enhanced Edition) tested version is 2.6.6.0
 
 ## Operating Systems
 * Tested on Windows 11 and is likely to work on other operating systems
@@ -47,8 +55,8 @@ A total of 21 images were created that can be found as a description image depen
 1. Download the [latest version](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/releases)
 2. Unzip the file
 3. Navigate into the unzipped folder until you see the "*tutorils_he*" folder.
-4. Copy the folder "*tutorils_he*" and the file "*Setup-tutorils_he.exe*" and paste them into your Baldur's Gate Enhanced Edition(SoD) or Icewind Dale Enhanced Edition game folder.
-5. Start "*Setup-tutorils_he.exe*" and select the installation language.
+4. Copy the folder "*tutorils_he*" and the file "*Setup-tutorils_he.exe*" and paste them into your Baldur's Gate Enhanced Edition(SoD), Icewind Dale Enhanced Edition or Baldur's Gate 2 Enhanced Edition game folder.
+5. Start "*Setup-tutorils_he.exe*" and follow the installation instructions.
 
 ## Troubleshooting
 ### There are known issues when installing SOD as DLC for BG:EE
@@ -59,7 +67,7 @@ Here is a solution:
 	2. and after that [DLCmerger](https://github.com/Argent77/A7-DlcMerger/releases) needs to be installed.
 
 ### Compatibility
-* Likely incompatible with UI mods that change chapter sequences in the UI.MENU file, or UI mods that fundamentally change the user interface of IE games.
+* Likely incompatible with UI mods that change **chapter sequences** in the **UI.MENU** file, or UI mods that **fundamentally change the user interface** of IE games.
 
 ## More Information(TODO)
 ### Competition
@@ -73,10 +81,7 @@ Because of this, the mod has achieved in its first alpha state the following ach
 
 One of the conditions of the competition was not to use AI, which is why the goal of this mod is to develop and finish without the use of AI.
 
-### TODO
-* TODO: Link to wiki
-* TODO: Effects of every encyclopedia
-Still in works!
+For more detailed information, please visit this [projects wiki](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/wiki/Modification).
 
 ## Special Thanks
 Thanks to ["The Gibberlings 3"](https://www.gibberlings3.net/forums/) forum users, Infinity Engine discord server users and ["Spellhold Studios"](http://www.shsforums.net/) who helped me with hints and information:
@@ -102,9 +107,9 @@ Thanks for offering troubleshooting
 ### General
 * Image: by <a href="https://unsplash.com/de/@heathergreengreen?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Heather Green</a> on <a href="https://unsplash.com/de/fotos/ein-altes-stuck-papier-mit-abgerissenen-kanten-sJAhA7oAkeY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> used as paper texture
 
-* Image: Reading sequence frames partially used from Beamdog's Enhanced Edition games from the chapter sequences
+* Image: Reading sequence frames partially used from Beamdog's Enhanced Edition games from the chapter sequences.
 
-* Text: The voiced text are from the Infinity Engine game Baldur's Gate Enhanced Edition. This is noted here due to copyright issues and should be treated with respect to the owner of Beamdog.
+* Text: The voiced text are from the Infinity Engine games.
 
 
 ### "History of the Drow"

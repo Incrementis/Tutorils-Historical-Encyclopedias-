@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.7.0~
+VERSION ~v0.7.5~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -24,6 +24,7 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/lib/%WEIDU_OS%/dynArrayFunctionalities.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/gameInfo.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/UIHandling.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/StoHandling.tph~
 END// End of "ALWAYS"
 
 
@@ -175,7 +176,7 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 	SPRINT L_description_image 	~!_CHOFTD~
 	SPRINT L_inventory_icon 	~!_IHOFTD~
 	SET L_price	 				= 100
-	SET L_weight 				= 5
+	SET L_weight 				= 3
 	// Concatenates charge ability description with book text
 	SPRINT L_description_text 	@5	
 	SPRINT L_description_text	~%HOFTD_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfTheDrow.tpp~"
@@ -211,7 +212,7 @@ COPY_EXISTING ~!_HOFW.ITM~ override
 	SPRINT L_description_image 	~!_CHOFW~
 	SPRINT L_inventory_icon 	~!_IHOFW~
 	SET L_price	 				= 200
-	SET L_weight 				= 13
+	SET L_weight 				= 7
 	// Concatenates charge ability description with book text
 	SPRINT L_description_text 	@10	
 	SPRINT L_description_text	~%HOFW_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfWaterdeep.tpp~"
@@ -247,7 +248,7 @@ COPY_EXISTING ~!_HOFTN.ITM~ override
 	SPRINT L_description_image 	~!_CHOFTN~
 	SPRINT L_inventory_icon 	~!_IHOFTN~
 	SET L_price	 				= 300
-	SET L_weight 				= 21
+	SET L_weight 				= 11
 	// Concatenates charge ability description with book text
 	SPRINT L_description_text 	@15	
 	SPRINT L_description_text	~%HOFTN_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfTheNorth.tpa~"
@@ -283,7 +284,7 @@ COPY_EXISTING ~!_HOFS.ITM~ override
 	SPRINT L_description_image 	~!_CHOFS~
 	SPRINT L_inventory_icon 	~!_IHOFS~
 	SET L_price	 				= 400
-	SET L_weight 				= 21
+	SET L_weight 				= 14
 	// Concatenates charge ability description with book text
 	SPRINT L_description_text 	@20
 	SPRINT L_description_text	~%HOFS_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfShadowdale.tpa~"
@@ -307,51 +308,40 @@ COPY_EXISTING ~!_HOFS.ITM~ override
 BUT_ONLY // End patching: ~!_HOFTS.ITM~
 
 
-// TODO: Check if refactoring is needed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ---Icewind Dale Enhanced Edition
-ACTION_IF GAME_IS ~iwdee~ THEN
+ACTION_IF (GAME_IS ~iwdee~) THEN
 BEGIN
-	// 
-	// -----------------------------------------------
-	COPY_EXISTING ~EHPOMAB.STO~ ~override~
-		// 
-		// ----------------------------------
+	// PATCHING STORE FILE "Gerth's Equipment Shop"(Kuldahar)
+	// ------------------------------------------------------
+	COPY_EXISTING ~KUGERTH.STO~ ~override~
 		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
-	BUT_ONLY // End patching: ~??????~
-	// 
-	// -----------------------------------------------
-	COPY_EXISTING ~KUOSWALD.STO~ ~override~
-		// 
-		// ----------------------------------
-		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
-	BUT_ONLY // End patching: ~??????~
+	BUT_ONLY // End patching: ~KUGERTH.STO~
 END
+
 // ---Siege of Dragonspear and Baldur's Gate Enhanced Edition
-ACTION_IF (FILE_EXISTS ~sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~) OR (GAME_IS ~bgee~)THEN
+ACTION_IF (GAME_INCLUDES ~sod~) OR (GAME_IS ~bgee~)THEN
 BEGIN
 	// PATCHING STORE FILE "Feldepost's Inn"(Beregost)
 	// -----------------------------------------------
 	COPY_EXISTING ~INN3351.STO~ ~override~
-		// LOCAL INCLUDES(Content changeable)
-		// ----------------------------------
-		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
-	BUT_ONLY // End patching: ~INN3351.STO~
-END
-// ---Baldur's Gate 2 Enhanced Edition
-ACTION_IF (GAME_IS ~bg2ee~)THEN
-BEGIN
-	// 
-	// -----------------------------------------------
-	COPY_EXISTING ~SHOP08.STO~ ~override~
-		// 
-		// ----------------------------------
 		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
 	BUT_ONLY // End patching: ~INN3351.STO~
 END
 
+// ---Baldur's Gate 2 Enhanced Edition
+ACTION_IF (GAME_IS ~bg2ee~)THEN
+BEGIN
+	// PATCHING STORE FILE "Galoomp the Bookkeeper"(Waukeen's Promenade)
+	// -----------------------------------------------------------------
+	COPY_EXISTING ~SHOP08.STO~ ~override~
+		PATCH_INCLUDE ~%MOD_FOLDER%/lpf/!_storeAllItems.tpp~
+	BUT_ONLY // End patching: ~SHOP08.STO~
+END
 
 
 // FOOTER INCLUDES
 // ---------------
+INCLUDE ~%MOD_FOLDER%/laf/!_itemtypesSaleability.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkSOD.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkIEgames.tpa~
+// TODO: CLEANUP

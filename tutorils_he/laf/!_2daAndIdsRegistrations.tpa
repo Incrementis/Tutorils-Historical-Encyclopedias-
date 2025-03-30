@@ -9,7 +9,7 @@ LAF ADD_ITEMTYPE_IN_2DA
 		soundGrab			= ~!_GAM_1A~
 		soundDrop			= ~!_GAM_1B~
 	RET
-		typeEncyclopedia 	= typeNumber // Encyclopedia newtype is also used in setup-tutorils_he.tp2
+		typeEncyclopedia 	= typeNumber
 END
 // OPTIONAL: REGISTER ITEMTYPE/-CATEGORY ENCYCL!_(Encyclopedia)
 // ------------------------------------------------------------
