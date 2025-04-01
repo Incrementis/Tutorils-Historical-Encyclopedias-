@@ -31,7 +31,6 @@ They also share a **unique ground icon** with a custom highlight, showing that t
 
 A total of **21 images** were created that can be found as a description image depending on the number of books an encyclopedia covers. For example, "_History of the Drow_" has two. Depending on the number of images that a description image must use, these are correspondingly small.
 
-EVery encyclopedia has it's own specific magical effects
 
 # How to use
 * Headphones recommended

@@ -1,0 +1,15 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+// DELETE ALL CREATED FILES!
+// ------------------------- 
+OUTER_SPRINT ~!_deleteArray~ ~HOFTD_strrefs~
+LAM DYN_ARRAY_CLEANUP
+OUTER_SPRINT ~!_deleteArray~ ~HOFW_strrefs~
+LAM DYN_ARRAY_CLEANUP
+OUTER_SPRINT ~!_deleteArray~ ~HOFTN_strrefs~
+LAM DYN_ARRAY_CLEANUP
+OUTER_SPRINT ~!_deleteArray~ ~HOFS_strrefs~
+LAM DYN_ARRAY_CLEANUP
+
+// WeiDU INTERNAL CLEANUP!
+// -----------------------
+CLEAR_EVERYTHING
