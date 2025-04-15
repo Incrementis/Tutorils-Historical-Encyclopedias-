@@ -1,0 +1,38 @@
+// --------------------
+// Identifizierter Name
+// --------------------
+@12=~THE:Die Geschichte des Nordens~
+
+// --------------------------------
+// Nichtidentifizierte Beschreibung
+// --------------------------------
+@13=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
+
+EIGENSCHAFTEN:
+
+Gewicht: 11~
+
+// ---------------------------------------
+// Identifizierte Beschreibung (Teilweise)
+// ---------------------------------------
+@14=~
+
+EIGENSCHAFTEN:
+
+Der Gegenstand kann nur im linken Schnellslot ausgerüstet werden.
+
+-Hellsehen (1x täglich)
+Dauer: Sofort
+
+Mithilfe dieses Zaubers kann der Anwender in seinen Gedanken sehen, wie das Gebiet aussieht, in dem er sich momentan aufhält. Der Zauber erfasst einen sehr großen Bereich, aber kann keine Wesen oder ihre Bewegungen aufdecken.
+
+Gewicht: 11~
+
+// ----------
+// Dialogtext
+// ----------
+@15=~Die eisblaue Farbe, die unter anderem den Einband kennzeichnet, strahlt Magie aus. Bei Berührung verwandelt sich die Farbe in ein Gefühl winterlicher Kälte, das mit dem kalten Norden assoziiert werden kann, den dieses Buch repräsentiert. Auf subtiler Ebene schwingt im Buch sogar die stürmische Gewalt der Natur mit, ohne anstößig oder unangenehm zu sein. Das Buch möchte die Geschichte des rauen Nordens teilen und ein offener, aber nicht unhöflicher Gastgeber sein.
+Konzentriert man sich auf dieses Gefühl, während man das Buch in der Hand hält, ist es, als wäre man Teil der Gegend. Der Eindruck, Teil des ganzen Landes zu sein, ist zunächst subtil, wird aber mit jedem Moment stärker, bis einem nichts mehr unbekannt ist.
+Auf der Vorderseite steht "Geschichte des Nordens" mit einem großen N, unter dem Titel "Tutorils Enzyklopädie" in kleineren Buchstaben.
+Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat.
+Das Buch ist geöffnet und bereit zum Lesen...~[ACT_01]

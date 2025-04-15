@@ -1,4 +1,8 @@
 // -------------------------
 // Schaltflächenbeschriftung 
 // -------------------------
-@22 = ~Lesen~
+@21=~Lesen~
+// --------------------------------------------
+// Name für nicht identifiziertes Enzyklopädien
+// --------------------------------------------
+@22=~Enzyklopädie~

@@ -1,0 +1,41 @@
+// --------------------
+// Identifizierter Name
+// --------------------
+@17=~THE:Die Geschichte des Schattentals~
+
+// --------------------------------
+// Nichtidentifizierte Beschreibung
+// --------------------------------
+@18=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
+
+EIGENSCHAFTEN:
+
+Gewicht: 14~
+
+// ---------------------------------------
+// Identifizierte Beschreibung (Teilweise)
+// ---------------------------------------
+@19=~
+
+EIGENSCHAFTEN:
+
+Der Gegenstand kann nur im linken Schnellslot ausgerüstet werden.
+
+-Fernsicht (1x täglich)
+Dauer: 10 Runden
+
+Mithilfe von Fernsicht kann der Anwender einen noch nicht erforschten Teil der Karte einsehen. Klickt einfach auf jenen Teil der Karte, den Ihr einsehen wollt, nachdem Ihr den Zauber gewirkt habt. Während der Wirkungsdauer kann der Anwender das gewählte Gebiet ausspionieren. Auch die Wesen, die sich in dem Gebiet aufhalten, werden sichtbar.
+
+Gewicht: 13~
+
+// ----------
+// Dialogtext
+// ----------
+@20=~Der Einband des Buches erinnert an langsam fließendes, tiefes und reines Blut, und der schimmernde Goldrahmen, der den Einband ziert, scheint in diesem Blut zu schwimmen. Auf der Vorderseite steht "Die Geschichte des Schattentals" mit einem großen "S", unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
+
+Es fühlt sich warm an, als symbolisiere das frische Blut die Geschichte, die das Schattental durchlebt hat. Dennoch ruft es keine anstößigen oder aufdringlichen Emotionen hervor. Es scheint eher, als wolle es die Geschichte seines Erbes und der Gewalt erzählen, die es erlebt hat. Es lädt dazu ein, vergangene Intrigen und Politik zu erleben.
+
+Die Magie, die das Buch durchdringt, enthüllt bei Berührung und Konzentration die wahre Natur bösartiger Wesen.
+
+Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat.
+Das Buch ist geöffnet und bereit zum Lesen...~[ACT_01]

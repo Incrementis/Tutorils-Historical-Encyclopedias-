@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v0.7.19~
+VERSION ~v0.7.33~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -32,8 +32,8 @@ END// End of "ALWAYS"
 // Languages
 // ---------
 LANGUAGE
-	~English~	// Language
-	~English~	// Directory
+	~english~	// Language
+	~english~	// Directory
 	~tutorils_he/English/!_global.tra~
 	~tutorils_he/English/!_setup.tra~
 	~tutorils_he/English/!_warnings.tra~
@@ -44,16 +44,19 @@ LANGUAGE
 	~tutorils_he/English/!_historyOfShadowdale.tra~
 
 
-/*	
+	
 LANGUAGE
-	~Deutsch~	// Language
-	~Deutsch~	// Directory
+	~deutsch~	// Language
+	~deutsch~	// Directory
 	~tutorils_he/Deutsch/!_global.tra~
 	~tutorils_he/Deutsch/!_setup.tra~
-	~tutorils_he/Deutsch/!_hoftd.tra~
 	~tutorils_he/Deutsch/!_warnings.tra~
 	~tutorils_he/Deutsch/!_errors.tra~
-*/
+	~tutorils_he/Deutsch/!_historyOfTheDrow.tra~
+	~tutorils_he/Deutsch/!_historyOfWaterdeep.tra~
+	~tutorils_he/Deutsch/!_historyOfTheNorth.tra~
+	~tutorils_he/Deutsch/!_historyOfShadowdale.tra~
+
 
 // ------------------------------------------------
 // Install "Tutoril's Historical Encyclopedias" Mod
@@ -156,7 +159,7 @@ OUTER_SET ITM_NUMBER_OF_ABILITIES	= 0x0068
 // GLOBAL VARIABLES (Changable)
 // ----------------------------
 // Gets the the stringref for the button which references to the button text.
-OUTER_SET button 				= RESOLVE_STR_REF(@22)	 
+OUTER_SET button 				= RESOLVE_STR_REF(@21)	 
 OUTER_SPRINT signature 			 ~ITM~
 OUTER_SPRINT version 			 ~V1~	
 OUTER_SET lore 					= 10
@@ -178,14 +181,14 @@ COPY_EXISTING ~!_HOFTD.ITM~ override
 	SET L_price	 				= 100
 	SET L_weight 				= 3
 	// Concatenates charge ability description with book text
-	SPRINT L_description_text 	@5	
+	SPRINT L_description_text 	@4	
 	SPRINT L_description_text	~%HOFTD_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfTheDrow.tpp~"
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
-	SAY NAME1 				@2 									// Unidentified item name
-	SAY NAME2 				@3 									// Identified item name
-	SAY UNIDENTIFIED_DESC 	@4 									// Unidentified description
+	SAY NAME1 				@22 								// Unidentified item name
+	SAY NAME2 				@2 									// Identified item name
+	SAY UNIDENTIFIED_DESC 	@3 									// Unidentified description
 	SAY DESC 							~%L_description_text%~	// Identified description
 	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
 	WRITE_ASCII	ITM_VERSION				~%version%~
@@ -214,14 +217,14 @@ COPY_EXISTING ~!_HOFW.ITM~ override
 	SET L_price	 				= 200
 	SET L_weight 				= 7
 	// Concatenates charge ability description with book text
-	SPRINT L_description_text 	@10	
+	SPRINT L_description_text 	@9	
 	SPRINT L_description_text	~%HOFW_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfWaterdeep.tpp~"
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
-	SAY NAME1 				@7 									// Unidentified item name
-	SAY NAME2 				@8 									// Identified item name 		
-	SAY UNIDENTIFIED_DESC 	@9 									// Unidentified description	
+	SAY NAME1 				@22 								// Unidentified item name
+	SAY NAME2 				@7 									// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@8 									// Unidentified description	
 	SAY DESC 							~%L_description_text%~	// Identified description				
 	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
 	WRITE_ASCII	ITM_VERSION				~%version%~		
@@ -250,14 +253,14 @@ COPY_EXISTING ~!_HOFTN.ITM~ override
 	SET L_price	 				= 300
 	SET L_weight 				= 11
 	// Concatenates charge ability description with book text
-	SPRINT L_description_text 	@15	
+	SPRINT L_description_text 	@14
 	SPRINT L_description_text	~%HOFTN_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfTheNorth.tpa~"
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
-	SAY NAME1 				@12 								// Unidentified item name
-	SAY NAME2 				@13 								// Identified item name 		
-	SAY UNIDENTIFIED_DESC 	@14 								// Unidentified description	
+	SAY NAME1 				@22 								// Unidentified item name
+	SAY NAME2 				@12 								// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@13 								// Unidentified description	
 	SAY DESC 							~%L_description_text%~	// Identified description				
 	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
 	WRITE_ASCII	ITM_VERSION				~%version%~		
@@ -286,14 +289,14 @@ COPY_EXISTING ~!_HOFS.ITM~ override
 	SET L_price	 				= 400
 	SET L_weight 				= 14
 	// Concatenates charge ability description with book text
-	SPRINT L_description_text 	@20
+	SPRINT L_description_text 	@19
 	SPRINT L_description_text	~%HOFS_book_text%~^~%L_description_text%~ // "See laf/!_concatHistoryOfShadowdale.tpa~"
 
 	// ITEM PROPERTIES (HEADER)
 	// ------------------------
-	SAY NAME1 				@17 								// Unidentified item name
-	SAY NAME2 				@18 								// Identified item name 		
-	SAY UNIDENTIFIED_DESC 	@19 								// Unidentified description	
+	SAY NAME1 				@22 								// Unidentified item name
+	SAY NAME2 				@17 								// Identified item name 		
+	SAY UNIDENTIFIED_DESC 	@18 								// Unidentified description	
 	SAY DESC 							~%L_description_text%~	// Identified description				
 	WRITE_ASCII	ITM_SIGNATURE			~%signature%~
 	WRITE_ASCII	ITM_VERSION				~%version%~		
@@ -345,4 +348,3 @@ INCLUDE ~%MOD_FOLDER%/laf/!_itemtypesSaleability.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkSOD.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkIEgames.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_cleanup.tpa~
-// TODO: CLEANUP
