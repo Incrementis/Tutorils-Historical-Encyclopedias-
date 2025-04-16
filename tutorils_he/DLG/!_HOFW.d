@@ -2,7 +2,7 @@
 BEGIN ~!_HOFW~ // Name of the DLG file which is the same name of the ITM file name
 	
 	IF ~True()~ THEN BEGIN read
-	SAY @10
+	SAY @11
 	IF ~~ THEN DO ~ClearAllActions()		
 		StartCutSceneMode()		
 		CutSceneId(Player1)		

@@ -1,12 +1,17 @@
+// ----------------
+// Lesesequenztitel
+// ----------------
+@7=~THE:Die-Geschichte-von-Tiefwasser~
+
 // --------------------
 // Identifizierter Name
 // --------------------
-@7=~THE:Die Geschichte von Tiefwasser~
+@8=~THE:Die Geschichte von Tiefwasser~
 
 // --------------------------------
 // Nichtidentifizierte Beschreibung
 // --------------------------------
-@8=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
+@9=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
 
 EIGENSCHAFTEN:
 
@@ -15,7 +20,7 @@ Gewicht: 7~
 // ---------------------------------------
 // Identifizierte Beschreibung (Teilweise)
 // ---------------------------------------
-@9=~
+@10=~
 
 EIGENSCHAFTEN:
 
@@ -26,13 +31,14 @@ Dauer: 2 Runden
 Reichweite: Alle außer Anwender
 
 Mithilfe dieses Zaubers kann der Anwender die Aura aller Wesen exakt analysieren. Wenn der Zauber erfolgreich gewirkt wird, leuchten böse Wesen rot, neutrale Wesen weiß(blau) und gute Wesen grün.
+
 Gewicht: 7~
 
 // ----------
 // Dialogtext
 // ----------
-@10=~Der Einband des Buches erinnert an den fruchtbaren Boden eines Landes, und die goldenen Rahmen, die ihn schmücken, ähneln Goldadern, die aus dem Boden an die Oberfläche gepresst wurden. Bei näherer Betrachtung scheint der subtil erdähnliche Einband langsam seine Form zu verändern und lädt den Leser ein, mehr über seine Geschichte zu erfahren, indem er versucht, ihn in seine Tiefen zu ziehen.
+@11=~Der Einband des Buches erinnert an den fruchtbaren Boden eines Landes, und die goldenen Rahmen, die ihn schmücken, ähneln Goldadern, die aus dem Boden an die Oberfläche gepresst wurden. Bei näherer Betrachtung scheint der subtil erdähnliche Einband langsam seine Form zu verändern und lädt den Leser ein, mehr über seine Geschichte zu erfahren, indem er versucht, ihn in seine Tiefen zu ziehen.
 Außerdem riecht es frisch nach Erde - interessanterweise weniger nach Erde, sondern mehr nach frischer Meeresluft. Die Magie der Enzyklopädie sorgt dafür, dass der Besitzer, während er das Buch in den Händen hält, sehen kann, wie jedes Lebewesen in eine sanfte, angenehme Farbe gehüllt ist und so die wahre Natur des Lebewesens offenbart.
-Auf der Vorderseite steht "Geschichte der Wassertiefe" in einem großen W, und unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
+Auf der Vorderseite steht "Die Geschichte von Tiefwasser" in einem großen W, und unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
 Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat.
 Das Buch ist geöffnet und bereit zum Lesen...~[ACT_01]

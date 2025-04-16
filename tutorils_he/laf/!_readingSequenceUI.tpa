@@ -35,13 +35,19 @@ BEGIN
 
 	// SETTING TEXT-POSITION AND TITLE IN READING SEQUENCE
 	// ---------------------------------------------------
+	OUTER_SPRINT titleDrowIWDEE 		@2
+	OUTER_SPRINT titleWaterdeepIWDEE 	@7
+	OUTER_SPRINT titleNorthIWDEE 		@12
+	OUTER_SPRINT titleShadowdaleIWDEE 	@17
+
 	ACTION_DEFINE_ARRAY Encyclopedias_titles_and_textpositions
 	BEGIN
-		~THE:History-of-the-Drow  	%HOFTD_strrefIWDEE% 535 184 365 456~
-		~THE:History-of-Waterdeep  	%HOFW_strrefIWDEE% 	535 184 365 456~
-		~THE:History-of-the-North  	%HOFTN_strrefIWDEE% 535 184 365 456~
-		~THE:History-of-Shadowdale  %HOFS_strrefIWDEE% 	535 184 365 456~
+		~%titleDrowIWDEE%  			%HOFTD_strrefIWDEE% 535 184 365 456~
+		~%titleWaterdeepIWDEE%  	%HOFW_strrefIWDEE% 	535 184 365 456~
+		~%titleNorthIWDEE%  		%HOFTN_strrefIWDEE% 535 184 365 456~
+		~%titleShadowdaleIWDEE%  	%HOFS_strrefIWDEE% 	535 184 365 456~
 	END
+	
 	// Manipulates UI.MENU
 	LAF IWDEE_SEQUENCE_TEXTPOS_AND_TITLE
 	STR_VAR

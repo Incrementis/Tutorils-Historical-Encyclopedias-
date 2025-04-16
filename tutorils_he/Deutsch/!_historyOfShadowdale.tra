@@ -1,12 +1,17 @@
+// ----------------
+// Lesesequenztitel
+// ----------------
+@17=~THE:Die-Geschichte-des-Schattentals~
+
 // --------------------
 // Identifizierter Name
 // --------------------
-@17=~THE:Die Geschichte des Schattentals~
+@18=~THE:Die Geschichte des Schattentals~
 
 // --------------------------------
 // Nichtidentifizierte Beschreibung
 // --------------------------------
-@18=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
+@19=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
 
 EIGENSCHAFTEN:
 
@@ -15,7 +20,7 @@ Gewicht: 14~
 // ---------------------------------------
 // Identifizierte Beschreibung (Teilweise)
 // ---------------------------------------
-@19=~
+@20=~
 
 EIGENSCHAFTEN:
 
@@ -31,7 +36,7 @@ Gewicht: 13~
 // ----------
 // Dialogtext
 // ----------
-@20=~Der Einband des Buches erinnert an langsam fließendes, tiefes und reines Blut, und der schimmernde Goldrahmen, der den Einband ziert, scheint in diesem Blut zu schwimmen. Auf der Vorderseite steht "Die Geschichte des Schattentals" mit einem großen "S", unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
+@21=~Der Einband des Buches erinnert an langsam fließendes, tiefes und reines Blut, und der schimmernde Goldrahmen, der den Einband ziert, scheint in diesem Blut zu schwimmen. Auf der Vorderseite steht "Die Geschichte des Schattentals" mit einem großen "S", unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
 
 Es fühlt sich warm an, als symbolisiere das frische Blut die Geschichte, die das Schattental durchlebt hat. Dennoch ruft es keine anstößigen oder aufdringlichen Emotionen hervor. Es scheint eher, als wolle es die Geschichte seines Erbes und der Gewalt erzählen, die es erlebt hat. Es lädt dazu ein, vergangene Intrigen und Politik zu erleben.
 

@@ -49,7 +49,7 @@ A total of **21 images** were created that can be found as a description image d
 
 ## Languages
 * English
-* Not-Yet Deutsch
+* Deutsch
 
 ## Installation
 1. Download the [latest version](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/releases)
@@ -69,7 +69,7 @@ Here is a solution:
 ### Compatibility
 * Likely incompatible with UI mods that change **chapter sequences** in the **UI.MENU** file, or UI mods that **fundamentally change the user interface** of IE games.
 
-## More Information(TODO)
+## More Information
 ### Competition
 “*Tutoril's Historical Encyclopedias*” took part in the following competition:
 [2024 Baldur’s Gate Community Creative Craziness Challenge](https://www.gibberlings3.net/forums/topic/38732-2024-baldur%E2%80%99s-gate-community-creative-craziness-challenge/#comment-342226)

@@ -1,12 +1,17 @@
+// ----------------
+// Lesesequenztitel
+// ----------------
+@2=~THE:Die-Geschichte-der-Drow~
+
 // --------------------
 // Identifizierter Name
 // --------------------
-@2=~THE:Die Geschichte der Drow~
+@3=~THE:Die Geschichte der Drow~
 
 // --------------------------------
 // Nichtidentifizierte Beschreibung
 // --------------------------------
-@3=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
+@4=~Nach den obskuren Symbolen auf dem Umschlag zu urteilen, besitzt dieses Buch eindeutig magische Eigenschaften. Solange Ihr nicht versucht, es zu lesen oder zu identifizieren, wird Euch seine wahre Natur allerdings verborgen bleiben.
 
 EIGENSCHAFTEN:
 
@@ -15,7 +20,7 @@ Gewicht: 3~
 // ---------------------------------------
 // Identifizierte Beschreibung (Teilweise)
 // ---------------------------------------
-@4=~
+@5=~
 
 EIGENSCHAFTEN:
 
@@ -32,7 +37,7 @@ Gewicht: 3~
 // ----------
 // Dialogtext
 // ----------
-@5=~Der dunkle Einband scheint den Blick des Betrachters bei längerer Betrachtung fesseln zu wollen. Selbst der goldene Rahmen, der das Buch ziert, tritt zunehmend in den Hintergrund. Die Magie des Buches ist nicht aufdringlich, sondern lädt vielmehr dazu ein, in die Tiefen der dunklen Geschichte der Drow einzutauchen.
+@6=~Der dunkle Einband scheint den Blick des Betrachters bei längerer Betrachtung fesseln zu wollen. Selbst der goldene Rahmen, der das Buch ziert, tritt zunehmend in den Hintergrund. Die Magie des Buches ist nicht aufdringlich, sondern lädt vielmehr dazu ein, in die Tiefen der dunklen Geschichte der Drow einzutauchen.
 Bei noch stärkerer Fokussierung ermöglicht die Magie der Enzyklopädie selbst im dunklen Unterreich zu sehen.
 Auf der Vorderseite steht "Die Geschichte der Drow" mit einem großen D, unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
 Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat.
