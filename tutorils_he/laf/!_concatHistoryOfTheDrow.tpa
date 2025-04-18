@@ -76,6 +76,7 @@ BEGIN
 			ACTION_IF(indexVocesBooks < (HOFTD_numOfStrrefs - 1))
 			BEGIN
 				// Gets new strref and writes the specifci book text and sound into the specific strref position in dialog.tlk
+				// All books except the last book in encyclopedia
 				LAF RESOLVE_STR_REF_WITH_STRINGS
 					STR_VAR
 						text 	= ~%book_text%%NL%%NL%%NL%%NL%___________~
@@ -118,9 +119,10 @@ BEGIN
 		ACTION_IF(indexVocesBooks = (HOFTD_numOfStrrefs - 1)) THEN
 		BEGIN
 			// Gets new strref and writes the specifci book text and sound into the specific strref position in dialog.tlk
+			// The last book in the encyclopedia
 			LAF RESOLVE_STR_REF_WITH_STRINGS
 				STR_VAR
-					text 	= ~%book_text%~
+					text 	= ~%book_text%%NL%%NL%%NL%%NL%THE END~
 					sound	= ~%vox%~
 				RET
 					stringref = strRef
