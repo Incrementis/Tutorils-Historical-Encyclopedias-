@@ -34,7 +34,7 @@ A total of **21 images** were created that can be found as a description image d
 
 # How to use
 * Please note that no professional sound hardware was used for the voice recording and the voice does not come from a professional voice actor
-* Headphones recommended
+* Headphones recommended(Stereo!)
 * If **reading and listening at the same time** is wished this can be achieved **by left-mouse click on the text area** in "_Reading Sequence_"
 * This is not kind of a "_fast food_" mod, so take your time while consuming(it can be very long)
 
