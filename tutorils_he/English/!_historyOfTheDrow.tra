@@ -35,8 +35,6 @@ Weight: 3~
 // -----------
 // Dialog-Text
 // -----------
-@6=~The dark cover seems to want to capture the viewer's gaze when viewed for a longer period of time. Even the golden frame that adorns the book increasingly fades into the background.  The magic associated with the book is not intrusive and rather invites to delve into the depths of the dark history of the Drow. 
-When the gaze is even more focused, the magic of the encyclopedia allows one to see even in the dark underdark. 
-On the front it says “History of the Drow” with a big capital D and under the title it reads “Tutoril's Encyclopedia” in smaller letters. The encyclopedia is very extensive and heavy, as it covers the content of an entire series of books. It is also unnaturally clean and well made. It is obvious that this encyclopedia was created with great effort, which is why the book has a high price. 
+@6=~The dark cover seems to want to capture the viewer's gaze when viewed for a longer period of time. Even the golden frame that adorns the book increasingly fades into the background. The magic associated with the book is not intrusive and rather invites to delve into the depths of the dark history of the Drow. When the gaze is even more focused, the magic of the encyclopedia allows one to see even in the dark underdark. 
 
-The book is open and ready to read...~[ACT_01]
+On the front it says “History of the Drow” with a big capital D and under the title it reads “Tutoril's Encyclopedia” in smaller letters. The encyclopedia is very extensive and heavy, as it covers the content of an entire series of books. It is also unnaturally clean and well made. It is obvious that this encyclopedia was created with great effort, which is why the book has a high price. The book is open and ready to read...~[ACT_01]

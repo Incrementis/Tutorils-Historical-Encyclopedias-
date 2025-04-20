@@ -36,11 +36,6 @@ Gewicht: 13~
 // ----------
 // Dialogtext
 // ----------
-@21=~Der Einband des Buches erinnert an langsam fließendes, tiefes und reines Blut, und der schimmernde Goldrahmen, der den Einband ziert, scheint in diesem Blut zu schwimmen. Auf der Vorderseite steht "Die Geschichte des Schattentals" mit einem großen "S", unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
+@21=~Der Einband des Buches erinnert an langsam fließendes, tiefes und reines Blut, und der schimmernde Goldrahmen, der den Einband ziert, scheint in diesem Blut zu schwimmen. Es fühlt sich warm an, als symbolisiere das frische Blut die Geschichte, die das Schattental durchlebt hat. Dennoch ruft es keine anstößigen oder aufdringlichen Emotionen hervor. Es scheint eher, als wolle es die Geschichte seines Erbes und der Gewalt erzählen, die es erlebt hat. Es lädt dazu ein, vergangene Intrigen und Politik zu erleben. Die Magie, die das Buch durchdringt, enthüllt bei Berührung und Konzentration die wahre Natur bösartiger Wesen. 
 
-Es fühlt sich warm an, als symbolisiere das frische Blut die Geschichte, die das Schattental durchlebt hat. Dennoch ruft es keine anstößigen oder aufdringlichen Emotionen hervor. Es scheint eher, als wolle es die Geschichte seines Erbes und der Gewalt erzählen, die es erlebt hat. Es lädt dazu ein, vergangene Intrigen und Politik zu erleben.
-
-Die Magie, die das Buch durchdringt, enthüllt bei Berührung und Konzentration die wahre Natur bösartiger Wesen.
-
-Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat.
-Das Buch ist geöffnet und bereit zum Lesen...~[ACT_01]
+Auf der Vorderseite steht "Die Geschichte des Schattentals" mit einem großen "S", unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie". Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat. Das Buch ist geöffnet und bereit zum Lesen...~[ACT_01]

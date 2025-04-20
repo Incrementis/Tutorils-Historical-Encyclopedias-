@@ -37,8 +37,6 @@ Gewicht: 3~
 // ----------
 // Dialogtext
 // ----------
-@6=~Der dunkle Einband scheint den Blick des Betrachters bei längerer Betrachtung fesseln zu wollen. Selbst der goldene Rahmen, der das Buch ziert, tritt zunehmend in den Hintergrund. Die Magie des Buches ist nicht aufdringlich, sondern lädt vielmehr dazu ein, in die Tiefen der dunklen Geschichte der Drow einzutauchen.
-Bei noch stärkerer Fokussierung ermöglicht die Magie der Enzyklopädie selbst im dunklen Unterreich zu sehen.
-Auf der Vorderseite steht "Die Geschichte der Drow" mit einem großen D, unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie".
-Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat.
-Das Buch ist geöffnet und bereit zum Lesen...~[ACT_01]
+@6=~Der dunkle Einband scheint den Blick des Betrachters bei längerer Betrachtung fesseln zu wollen. Selbst der goldene Rahmen, der das Buch ziert, tritt zunehmend in den Hintergrund. Die Magie des Buches ist nicht aufdringlich, sondern lädt vielmehr dazu ein, in die Tiefen der dunklen Geschichte der Drow einzutauchen. Bei noch stärkerer Fokussierung ermöglicht die Magie der Enzyklopädie selbst im dunklen Unterreich zu sehen.
+
+Auf der Vorderseite steht "Die Geschichte der Drow" mit einem großen D, unter dem Titel steht in kleineren Buchstaben "Tutorils Enzyklopädie". Die Enzyklopädie ist sehr umfangreich und schwer, da sie den Inhalt einer ganzen Buchreihe abdeckt. Sie ist zudem unnatürlich sauber und gut gemacht. Man merkt, dass diese Enzyklopädie mit großem Aufwand erstellt wurde, weshalb das Buch auch einen hohen Preis hat. Das Buch ist geöffnet und bereit zum Lesen...~[ACT_01]

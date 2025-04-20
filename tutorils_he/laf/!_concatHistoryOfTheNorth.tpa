@@ -137,7 +137,7 @@ BEGIN
 			// The last book in the encyclopedia
 			LAF RESOLVE_STR_REF_WITH_STRINGS
 				STR_VAR
-					text 	= ~%book_text%%NL%%NL%%NL%%NL%THE END~
+					text 	= ~%book_text%%NL%%NL%%NL%%NL%FINIS~
 					sound	= ~%vox%~
 				RET
 					stringref = strRef
