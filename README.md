@@ -87,7 +87,7 @@ For more detailed information, please visit this [projects wiki](https://github.
 ## Special Thanks
 Thanks to ["The Gibberlings 3"](https://www.gibberlings3.net/forums/) forum users, Infinity Engine discord server users and ["Spellhold Studios"](http://www.shsforums.net/) who helped me with hints and information:
 
-* Bub
+* Bubb
 * Suy
 * Argent77
 * Cuv
