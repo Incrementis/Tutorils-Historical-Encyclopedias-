@@ -1,6 +1,6 @@
 # Tutorils-Historical-Encyclopedias-
 ## NOTE 
-This is a beta version and still a work in progress. This means most things are already implemented and the mod is subject to change. Use this mod with caution!
+If you click on the image below you will be taken to a sort of teaser video on YouTube.
 
 [![YouTube](https://github.com/Incrementis/Infinity-Engine-Modding-Wiki-Content-/blob/main/Tutoril's%20Historical%20Encyclopedias/Reading%20Sequence/thumbnail.png)](https://youtu.be/fvaMcY-ZItM)
 
@@ -81,7 +81,8 @@ Because of this, the mod has achieved in its first alpha state the following ach
 One of the conditions of the competition was not to use AI, which is why the goal of this mod is to develop and finish without the use of AI.
 
 For more detailed information, please visit this [projects wiki](https://github.com/Incrementis/Tutorils-Historical-Encyclopedias-/wiki/Modification).
-![Dwarf GIF](hhttps://github.com/Incrementis/Infinity-Engine-Modding-Wiki-Content-/blob/main/Tutoril's%20Historical%20Encyclopedias/Animated%20Images/Tutoril's_Historical_Encyclopedias.gif)
+
+![Dwarf GIF](https://github.com/Incrementis/Infinity-Engine-Modding-Wiki-Content-/blob/main/Tutoril's%20Historical%20Encyclopedias/Animated%20Images/Tutoril's_Historical_Encyclopedias.gif)
 
 ## Special Thanks
 Thanks to ["The Gibberlings 3"](https://www.gibberlings3.net/forums/) forum users, Infinity Engine discord server users and ["Spellhold Studios"](http://www.shsforums.net/) who helped me with hints and information:
