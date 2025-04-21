@@ -2,8 +2,7 @@
 ## NOTE 
 This is a beta version and still a work in progress. This means most things are already implemented and the mod is subject to change. Use this mod with caution!
 
-## TODO
-Link to a YouTube video after full release.
+[![YouTube](https://github.com/Incrementis/Infinity-Engine-Modding-Wiki-Content-/blob/main/Tutoril's%20Historical%20Encyclopedias/Reading%20Sequence/thumbnail.png)](https://youtu.be/fvaMcY-ZItM)
 
 ## Summary
 This mod is fanfiction!
