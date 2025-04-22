@@ -6,7 +6,7 @@ ACTION_DEFINE_ARRAY games_incompatible
 BEGIN 
 	~bg2~ 
 	//~bgee~
-	//~eet~
+	~eet~
 	~tob~
 	~iwd2~
 	~pst~
