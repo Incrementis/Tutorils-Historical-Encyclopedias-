@@ -1,5 +1,9 @@
 # Tutorils-Historical-Encyclopedias-
 ## NOTE 
+Please download the release ZIP file (e.g., Tutorils-Historical-Encyclopedias-v1.0.0.zip) instead of cloning or downloading the source code from this repository. The repository is very large.
+
+The release link can be found in the "_Installation_" section of this readme file.
+
 If you click on the image below you will be taken to a sort of teaser video on YouTube.
 
 [![YouTube](https://github.com/Incrementis/Infinity-Engine-Modding-Wiki-Content-/blob/main/Tutoril's%20Historical%20Encyclopedias/Reading%20Sequence/thumbnail.png)](https://youtu.be/fvaMcY-ZItM)
