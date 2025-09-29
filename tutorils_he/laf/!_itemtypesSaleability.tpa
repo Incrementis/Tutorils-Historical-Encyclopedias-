@@ -152,8 +152,7 @@ BEGIN
 			groupStoArray 	= "IWDEE_groupSTOs"
 			singleStoArray 	= "IWDEE_singleSTOs"
 	END
-END
-
+END ELSE
 // ---Baldur's Gate Enhanced Edition
 ACTION_IF (GAME_IS ~bgee~) AND NOT(GAME_INCLUDES ~sod~) THEN
 BEGIN
@@ -165,10 +164,9 @@ BEGIN
 			groupStoArray 	= "BGEE_groupSTOs"
 			singleStoArray 	= "BGEE_singleSTOs"
 	END
-END
-
+END ELSE
 // ---BGEE:Siege of Dragonspear
-ACTION_IF (GAME_INCLUDES ~sod~) THEN
+ACTION_IF (GAME_IS ~bgee~) AND (GAME_INCLUDES ~sod~) THEN
 BEGIN
 	LAF ADD_ITEMTYPES_IN_STO
 		INT_VAR
@@ -178,8 +176,7 @@ BEGIN
 			groupStoArray 	= "SoD_groupSTOs"
 			singleStoArray 	= "SoD_singleSTOs"
 	END
-END
-
+END ELSE
 // ---Baldur's Gate 2 Enhanced Edition
 ACTION_IF (GAME_IS ~bg2ee~)THEN
 BEGIN
