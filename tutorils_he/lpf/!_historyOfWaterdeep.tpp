@@ -16,7 +16,7 @@ LPF ALTER_ITEM_HEADER
 		target					= 5 // Caster
 		range 					= 1 // Range in feet
 		charges					= 1 // x times of usage until it is depleted
-		drained 				= 0	// Item remains
+		drained 				= 3	// Item recharges
 		flag_recharge 			= 1 // Recharges after rest (set bit to 1 or alternatively understand it as 1=TRUE)
 	STR_VAR
 		icon = ~!_IHOFW~
