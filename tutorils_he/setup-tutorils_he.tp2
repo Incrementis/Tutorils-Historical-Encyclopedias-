@@ -4,7 +4,7 @@
 // -----------
 BACKUP 	~weidu_external/tutorils_he/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR 	~Incrementis (incrementis[@]gmail.com)~
-VERSION ~v1.0.12~
+VERSION ~v1.0.14~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -95,9 +95,14 @@ CREATE ~ITM~ ~!_HOFS~	// "THE:History of Shadowdale"
 
 // BAM FILES FOR ALL ITEMS
 // -----------------------
-ACTION_IF(GAME_IS ~iwdee~) THEN
+ACTION_IF( (GAME_IS ~iwdee~) AND (MOD_IS_INSTALLED ~cd_iwd_desc.tp2~ ~0~) ) THEN
 BEGIN
 	COPY ~%MOD_FOLDER%/BAM/inventory~ 	~override~
+	COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
+END ELSE ACTION_IF(GAME_IS ~iwdee~)
+BEGIN
+	COPY ~%MOD_FOLDER%/BAM/inventory~ 	~override~
+	COPY ~%MOD_FOLDER%/BAM/description~ ~override~
 	COPY ~%MOD_FOLDER%/BAM/ground~ 		~override~
 END ELSE
 BEGIN
@@ -347,4 +352,5 @@ END
 INCLUDE ~%MOD_FOLDER%/laf/!_itemtypesSaleability.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkSOD.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkIEgames.tpa~
+INCLUDE ~%MOD_FOLDER%/laf/warnings/!_checkOtherMods.tpa~
 INCLUDE ~%MOD_FOLDER%/laf/!_cleanup.tpa~

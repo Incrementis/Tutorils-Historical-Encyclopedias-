@@ -71,6 +71,8 @@ Here is a solution:
 
 ### Compatibility
 * Likely incompatible with UI mods that change **chapter sequences** in the **UI.MENU** file, or UI mods that **fundamentally change the user interface** of IE games.
+* Compatible with "**Description Icons for IWD Items**" (tested with **Beta 1**). To see the effect, "Tutorils Historical Encyclopedias" needs to be installed after "Description Icons for IWD Items". Installing without or before "Description Icons for IWD Items" will result into a harmless warning.
+* Compatible with "**EE Fixpack**" (tested with **Beta 2**).
 
 ## More Information
 ### Competition

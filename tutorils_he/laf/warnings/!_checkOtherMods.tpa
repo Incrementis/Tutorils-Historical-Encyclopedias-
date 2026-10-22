@@ -1,0 +1,17 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+// CHECKS COMPATIBILITY
+// --------------------
+ACTION_IF(GAME_IS ~iwdee~) THEN
+BEGIN
+    OUTER_SPRINT warning        @1073741818
+    OUTER_SET compName          = 1
+    OUTER_SPRINT tp2FileName    ~cd_iwd_desc.tp2~
+    // Calls warning 
+    LAF WARN_EVALUATE_MOD_EXISTANCE
+        INT_VAR
+            component   = ~%compName%~ 
+        STR_VAR 
+            tp2 	    = ~%tp2FileName%~
+            message     = ~%warning%~
+        END
+END
